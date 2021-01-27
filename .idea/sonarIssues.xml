@@ -8,6 +8,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../CarRental/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project7/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project7/src/main/java/by/shakhrai/epam/web/task/controller/MainControllerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
@@ -264,16 +279,6 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/java/com/bionic_university/carrental/util/Lgr.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../test_final_project7/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../test_final_project7/src/main/java/by/shakhrai/epam/web/task/controller/MainControllerTest.java">
           <value>
             <set />
           </value>
