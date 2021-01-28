@@ -1,0 +1,14 @@
+2021-01-28 21:14:10 INFO  http-nio-8080-exec-1 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 21:14:10 INFO  http-nio-8080-exec-3 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 21:14:10 INFO  http-nio-8080-exec-5 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 21:19:44 INFO  http-nio-8080-exec-1 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 21:19:44 INFO  http-nio-8080-exec-2 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 21:19:45 INFO  http-nio-8080-exec-4 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 22:02:21 INFO  http-nio-8080-exec-4 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 22:10:05 INFO  http-nio-8080-exec-5 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 22:11:48 INFO  http-nio-8080-exec-7 Lgr:execute:21 - Command called: NoCommand
+2021-01-28 23:42:11 ERROR http-nio-8080-exec-1 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Could not create connection to database server.)
+2021-01-28 23:42:11 ERROR http-nio-8080-exec-2 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Could not create connection to database server.)
+2021-01-28 23:42:12 ERROR http-nio-8080-exec-3 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Could not create connection to database server.)
+2021-01-28 23:43:29 ERROR http-nio-8080-exec-6 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Could not create connection to database server.)
+2021-01-28 23:43:30 ERROR http-nio-8080-exec-3 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Could not create connection to database server.)
