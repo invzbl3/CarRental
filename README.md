@@ -9,11 +9,11 @@ Administrator can review all the orders, confirm or reject the specific order, a
 
 To see the full size image press it and select "Raw".
 
-![Screenshot_1](/src/java/Screenshot_1.png)
+![Screenshot_1](Screenshot_1.png)
 
-![Screenshot_2](/src/java/Screenshot_2.png)
+![Screenshot_2](Screenshot_2.png)
 
-![Screenshot_3](/src/java/Screenshot_3.png)
+![Screenshot_3](Screenshot_3.png)
 
 #### Features:
 - Information is stored in MySQL database with access via JDBC;
