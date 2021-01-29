@@ -293,6 +293,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/target/CarRental-0.0.1-SNAPSHOT/WEB-INF/tlds/carrentaltaglib.tld">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/target/CarRental-0.0.1-SNAPSHOT/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/target/CarRental-0.0.1-SNAPSHOT/_carrental.log">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/web/WEB-INF/web.xml">
           <value>
             <set />
