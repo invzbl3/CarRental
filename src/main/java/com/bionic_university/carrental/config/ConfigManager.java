@@ -16,6 +16,7 @@ public class ConfigManager {
     private ResourceBundle resourceBundle;
 
     private static final String BUNDLE_NAME = "config";
+    //private static final String BUNDLE_NAME = "i18n.text"; // Can't find resource for bundle java.util.PropertyResourceBundle, key ERROR_PAGE_PATH
     public static final String DATABASE_DRIVER_NAME = "DATABASE_DRIVER_NAME";
     public static final String DATABASE_URL = "DATABASE_URL";
     public static final String DATABASE_USER = "DATABASE_USER";

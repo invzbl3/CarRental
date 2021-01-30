@@ -7,8 +7,8 @@
               maxActive="100" 
               maxIdle="30"
               maxWait="10000"
-              username="root" 
-              password="root"
+              username="root"
+              password="12345"
               driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/carrental?useUnicode=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF8"/>
     <!--      driverClassName="com.mysql.jdbc.Driver"-->

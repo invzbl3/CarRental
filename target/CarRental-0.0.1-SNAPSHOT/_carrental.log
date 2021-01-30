@@ -1,0 +1,21 @@
+2021-01-31 01:50:26 INFO  http-nio-8080-exec-1 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:26 INFO  http-nio-8080-exec-2 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:26 INFO  http-nio-8080-exec-3 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:36 INFO  http-nio-8080-exec-9 Lgr:execute:27 - Command called: LogInCommand
+2021-01-31 01:50:37 INFO  http-nio-8080-exec-9 Lgr:findByLogin:164 - Data selected successfully
+2021-01-31 01:50:37 INFO  http-nio-8080-exec-9 Lgr:findByLogin:164 - Data selected successfully
+2021-01-31 01:50:37 INFO  http-nio-8080-exec-9 Lgr:execute:59 - Admin root logged in
+2021-01-31 01:50:37 INFO  http-nio-8080-exec-9 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:42 INFO  http-nio-8080-exec-9 Lgr:execute:20 - Command called: LogOutCommand
+2021-01-31 01:50:42 INFO  http-nio-8080-exec-9 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:51 INFO  http-nio-8080-exec-7 Lgr:execute:27 - Command called: LogInCommand
+2021-01-31 01:50:51 INFO  http-nio-8080-exec-7 Lgr:findByLogin:164 - Data selected successfully
+2021-01-31 01:50:51 ERROR http-nio-8080-exec-7 Lgr:execute:65 - root login tryout failed
+2021-01-31 01:50:53 INFO  http-nio-8080-exec-1 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:50:58 INFO  http-nio-8080-exec-9 Lgr:execute:27 - Command called: LogInCommand
+2021-01-31 01:50:58 INFO  http-nio-8080-exec-9 Lgr:findByLogin:164 - Data selected successfully
+2021-01-31 01:50:58 INFO  http-nio-8080-exec-9 Lgr:findByLogin:164 - Data selected successfully
+2021-01-31 01:50:58 INFO  http-nio-8080-exec-9 Lgr:execute:59 - Admin root logged in
+2021-01-31 01:50:58 INFO  http-nio-8080-exec-9 Lgr:findAll:173 - Data selected successfully
+2021-01-31 01:51:00 INFO  http-nio-8080-exec-10 Lgr:execute:20 - Command called: LogOutCommand
+2021-01-31 01:51:00 INFO  http-nio-8080-exec-10 Lgr:findAll:173 - Data selected successfully
