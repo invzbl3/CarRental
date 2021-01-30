@@ -1,3 +1,0 @@
-2021-01-30 05:13:28 ERROR http-nio-8080-exec-1 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Access denied for user 'root'@'localhost' (using password: YES))
-2021-01-30 05:13:28 ERROR http-nio-8080-exec-2 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Access denied for user 'root'@'localhost' (using password: YES))
-2021-01-30 05:13:29 ERROR http-nio-8080-exec-3 Lgr:findAll:175 - java.sql.SQLException: Cannot create PoolableConnectionFactory (Access denied for user 'root'@'localhost' (using password: YES))

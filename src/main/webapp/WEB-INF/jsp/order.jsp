@@ -15,7 +15,7 @@
                                not empty language ? language :
                                pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="${language}" />
-<fmt:setBundle basename="com.bionic_university.carrental.i18n.text" />
+<fmt:setBundle basename="i18n.text" />
 
 <!DOCTYPE html>
 <html>
