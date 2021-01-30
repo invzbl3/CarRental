@@ -1,6 +1,8 @@
 package com.bionic_university.carrental.config;
 
 import com.bionic_university.carrental.util.Lgr;
+
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -13,7 +15,7 @@ public class ConfigManager {
     private static ConfigManager instance;
     private ResourceBundle resourceBundle;
 
-    private static final String BUNDLE_NAME = "com.bionic_university.carrental.config.config";
+    private static final String BUNDLE_NAME = "resources.i18n.text";
     public static final String DATABASE_DRIVER_NAME = "DATABASE_DRIVER_NAME";
     public static final String DATABASE_URL = "DATABASE_URL";
     public static final String DATABASE_USER = "DATABASE_USER";

@@ -22,7 +22,8 @@
         <log4jVersion>1.2.17</log4jVersion>
         <javax.servlet-apiVersion>4.0.1</javax.servlet-apiVersion>
         <jsp-apiVersion>2.2</jsp-apiVersion>
-        <mysql-connectorVersion>5.1.39</mysql-connectorVersion>
+        <!--<mysql-connectorVersion>5.1.39</mysql-connectorVersion>-->
+        <mysql-connectorVersion>8.0.20</mysql-connectorVersion>
     </properties>
 
     <dependencies>

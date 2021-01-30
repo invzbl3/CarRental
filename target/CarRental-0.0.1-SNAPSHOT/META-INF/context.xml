@@ -9,6 +9,8 @@
               maxWait="10000"
               username="root" 
               password="root"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/carrental?useUnicode=true&amp;characterEncoding=utf8"/>
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/carrental?useUnicode=true&amp;serverTimezone=UTC&amp;characterEncoding=UTF8"/>
+    <!--      driverClassName="com.mysql.jdbc.Driver"-->
+    <!--      url="jdbc:mysql://localhost:3306/carrental?useUnicode=true&amp;characterEncoding=utf8"-->
 </Context>
