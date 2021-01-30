@@ -15,7 +15,7 @@ public class ConfigManager {
     private static ConfigManager instance;
     private ResourceBundle resourceBundle;
 
-    private static final String BUNDLE_NAME = "i18n.text";
+    private static final String BUNDLE_NAME = "config.properties";
     public static final String DATABASE_DRIVER_NAME = "DATABASE_DRIVER_NAME";
     public static final String DATABASE_URL = "DATABASE_URL";
     public static final String DATABASE_USER = "DATABASE_USER";
