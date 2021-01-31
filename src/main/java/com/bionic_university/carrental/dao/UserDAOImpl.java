@@ -1,8 +1,10 @@
 package com.bionic_university.carrental.dao;
 
-import com.bionic_university.carrental.util.Lgr;
+import com.bionic_university.carrental.config.ConfigManager;
 import com.bionic_university.carrental.entities.User;
 import com.bionic_university.carrental.idao.IUserDAO;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +18,7 @@ import java.util.List;
  */
 public class UserDAOImpl implements IUserDAO {
 
+    public static final Logger LOGGER = Logger.getLogger(UserDAOImpl.class);
     private Connection cn = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
@@ -32,39 +35,31 @@ public class UserDAOImpl implements IUserDAO {
     private final String SELECT_QUERY;
 
     {
-        INSERT_QUERY = new StringBuffer()
-                .append("INSERT INTO ")
-                .append(TABLE_NAME)
-                .append(" (")
-                .append(COL_2).append(",")
-                .append(COL_3).append(",")
-                .append(COL_4)
-                .append(") VALUES ")
-                .append("(?,?,?)")
-                .toString();
+        INSERT_QUERY = "INSERT INTO " +
+                TABLE_NAME +
+                " (" +
+                COL_2 + "," +
+                COL_3 + "," +
+                COL_4 +
+                ") VALUES " +
+                "(?,?,?)";
 
-        UPDATE_QUERY = new StringBuffer()
-                .append("UPDATE ")
-                .append(TABLE_NAME)
-                .append(" SET ")
-                .append(COL_2).append("=?").append(",")
-                .append(COL_3).append("=?").append(",")
-                .append(COL_4).append("=?")
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        UPDATE_QUERY = "UPDATE " +
+                TABLE_NAME +
+                " SET " +
+                COL_2 + "=?" + "," +
+                COL_3 + "=?" + "," +
+                COL_4 + "=?" +
+                " WHERE " +
+                COL_1 + "=?";
 
-        DELETE_QUERY = new StringBuffer()
-                .append("DELETE FROM ")
-                .append(TABLE_NAME)
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        DELETE_QUERY = "DELETE FROM " +
+                TABLE_NAME +
+                " WHERE " +
+                COL_1 + "=?";
 
-        SELECT_QUERY = new StringBuffer()
-                .append("SELECT * FROM ")
-                .append(TABLE_NAME)
-                .toString();
+        SELECT_QUERY = "SELECT * FROM " +
+                TABLE_NAME;
     }
 
     @Override
@@ -77,9 +72,9 @@ public class UserDAOImpl implements IUserDAO {
             ps.setString(2, user.getLogin());
             ps.setString(3, user.getPassword());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data inserted successfully");
+            LOGGER.info("Data inserted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -97,9 +92,9 @@ public class UserDAOImpl implements IUserDAO {
             ps.setString(3, user.getPassword());
             ps.setInt(4, user.getUserID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data updated successfully");
+            LOGGER.info("Data updated successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -114,9 +109,9 @@ public class UserDAOImpl implements IUserDAO {
             ps = cn.prepareStatement(DELETE_QUERY);
             ps.setInt(1, user.getUserID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data deleted successfully");
+            LOGGER.info("Data deleted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -138,9 +133,9 @@ public class UserDAOImpl implements IUserDAO {
                 User userObj = new User(userID, userTypeID, login, password);
                 list.add(userObj);
             }
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -161,9 +156,9 @@ public class UserDAOImpl implements IUserDAO {
             String login = rs.getString(3);
             String password = rs.getString(4);
             userObj = new User(userID, userTypeID, login, password);
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -184,9 +179,9 @@ public class UserDAOImpl implements IUserDAO {
             String login = rs.getString(3);
             String password = rs.getString(4);
             userObj = new User(userID, userTypeID, login, password);
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }

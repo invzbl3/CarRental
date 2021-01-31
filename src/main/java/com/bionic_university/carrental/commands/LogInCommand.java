@@ -1,10 +1,11 @@
 package com.bionic_university.carrental.commands;
 
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.config.ConfigManager;
 import com.bionic_university.carrental.daofactory.DAOFactory;
 import com.bionic_university.carrental.entities.User;
 import com.bionic_university.carrental.idao.IUserDAO;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class LogInCommand implements ICommand {
+    public static final Logger LOGGER = Logger.getLogger(LogInCommand.class);
 
     private static final int LOGIN_ERROR = -1;
     private static final int ACC_TYPE_ADMIN = 1;
@@ -24,7 +26,7 @@ public class LogInCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
-        Lgr.LOGGER.info("Command called: " + this.getClass().getSimpleName());
+        LOGGER.info("Command called: " + this.getClass().getSimpleName());
 
         //get DAO and input data
         IUserDAO userDAO = DAOFactory.getUserDAO();
@@ -46,7 +48,7 @@ public class LogInCommand implements ICommand {
                 session.setAttribute(SESS_PARAM_USER_ID, userID);
                 page = ConfigManager.getInstance()
                         .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                Lgr.LOGGER.info("User " + user.getLogin() + " logged in");
+                LOGGER.info("User " + user.getLogin() + " logged in");
                 break;
             case ACC_TYPE_ADMIN:
                 session.setAttribute(SESS_PARAM_USER_NAME, login);
@@ -56,13 +58,13 @@ public class LogInCommand implements ICommand {
                 session.setAttribute(SESS_PARAM_USER_ID, userID);
                 page = ConfigManager.getInstance()
                         .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                Lgr.LOGGER.info("Admin " + user.getLogin() + " logged in");
+                LOGGER.info("Admin " + user.getLogin() + " logged in");
                 break;
             case LOGIN_ERROR:
                 req.setAttribute(SESS_PARAM_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE);
                 page = ConfigManager.getInstance()
                         .getProperty(ConfigManager.ERROR_PAGE_PATH);
-                Lgr.LOGGER.error(login + " login tryout failed");
+                LOGGER.error(login + " login tryout failed");
                 break;
             default:
                 page = null;
@@ -71,9 +73,9 @@ public class LogInCommand implements ICommand {
         return page;
     }
 
-    //auxiliary method for checking the login and password correspondance
+    //auxiliary method for checking the login and password correspondence
     private int checkLogin(String login, String password) {
-        Lgr.LOGGER.debug("checkLogin called");
+        LOGGER.debug("checkLogin called");
         IUserDAO userDAO = DAOFactory.getUserDAO();
         User user = userDAO.findByLogin(login);
         if ((user == null) || !(user.getPassword().equals(password))) {

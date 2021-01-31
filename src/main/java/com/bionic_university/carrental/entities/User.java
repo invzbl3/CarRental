@@ -1,6 +1,8 @@
 package com.bionic_university.carrental.entities;
 
 import java.io.Serializable;
+
+import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -10,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * A bean for "users" table
  *
  */
+@Data
 public class User implements Serializable {
 
     private int userID;
@@ -24,38 +27,6 @@ public class User implements Serializable {
         this.userID = userID;
         this.userTypeID = userTypeID;
         this.login = login;
-        this.password = password;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
-    public int getUserTypeID() {
-        return userTypeID;
-    }
-
-    public void setUserTypeID(int userTypeID) {
-        this.userTypeID = userTypeID;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -98,5 +69,4 @@ public class User implements Serializable {
                 .append(password, other.password)
                 .isEquals();
     }
-
 }

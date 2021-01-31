@@ -18,7 +18,6 @@ com\bionic_university\carrental\dao\OrderDAOImpl.class
 com\bionic_university\carrental\entities\User.class
 com\bionic_university\carrental\commands\ConfirmPaymentCommand.class
 com\bionic_university\carrental\idao\IPassportDAO.class
-com\bionic_university\carrental\util\Lgr.class
 com\bionic_university\carrental\commands\HomeButtonCommand.class
 com\bionic_university\carrental\commands\LogInCommand.class
 com\bionic_university\carrental\tags\LoadOrderListTag.class

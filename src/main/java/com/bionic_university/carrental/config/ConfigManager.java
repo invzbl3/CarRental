@@ -1,8 +1,7 @@
 package com.bionic_university.carrental.config;
 
-import com.bionic_university.carrental.util.Lgr;
+import org.apache.log4j.Logger;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -11,7 +10,7 @@ import java.util.ResourceBundle;
  *
  */
 public class ConfigManager {
-
+    public static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
     private static ConfigManager instance;
     private ResourceBundle resourceBundle;
 
@@ -40,7 +39,7 @@ public class ConfigManager {
     }
 
     public String getProperty(String key) {
-        Lgr.LOGGER.debug("Config called by key: " + key);
+        LOGGER.debug("Config called by key: " + key);
         return resourceBundle.getString(key);
     }
 

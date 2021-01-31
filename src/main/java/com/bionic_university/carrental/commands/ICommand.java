@@ -55,8 +55,7 @@ public interface ICommand {
     String REQ_PARAM_WHO_ISSUED = "whoIssued";
     String REQ_PARAM_WHEN_ISSUED = "whenIssued";
 
-    public String execute(HttpServletRequest req, HttpServletResponse res,
-            HttpSession session)
+    String execute(HttpServletRequest req, HttpServletResponse res,
+                   HttpSession session)
             throws ServletException, IOException;
-
 }

@@ -28,5 +28,4 @@ public class LoadOrderListTag extends TagSupport {
         pageContext.setAttribute(ICommand.REQ_PARAM_ORDER_LIST, orders);
         return SKIP_BODY;
     }
-
 }

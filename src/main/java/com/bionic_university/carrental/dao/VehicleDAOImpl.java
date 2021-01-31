@@ -1,8 +1,8 @@
 package com.bionic_university.carrental.dao;
 
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.entities.Vehicle;
 import com.bionic_university.carrental.idao.IVehicleDAO;
+import org.apache.log4j.Logger;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class VehicleDAOImpl implements IVehicleDAO {
 
+    public static final Logger LOGGER = Logger.getLogger(VehicleDAOImpl.class);
     private Connection cn;
     private PreparedStatement ps;
     private ResultSet rs;
@@ -38,55 +39,45 @@ public class VehicleDAOImpl implements IVehicleDAO {
 
     {
 
-        INSERT_QUERY = new StringBuffer()
-                .append("INSERT INTO ")
-                .append(TABLE_NAME)
-                .append(" (")
-                .append(COL_2).append(",")
-                .append(COL_3).append(",")
-                .append(COL_4).append(",")
-                .append(COL_5).append(",")
-                .append(COL_6).append(",")
-                .append(COL_7)
-                .append(") VALUES ")
-                .append("(?,?,?,?,?,?)")
-                .toString();
+        INSERT_QUERY = "INSERT INTO " +
+                TABLE_NAME +
+                " (" +
+                COL_2 + "," +
+                COL_3 + "," +
+                COL_4 + "," +
+                COL_5 + "," +
+                COL_6 + "," +
+                COL_7 +
+                ") VALUES " +
+                "(?,?,?,?,?,?)";
 
-        UPDATE_QUERY = new StringBuffer()
-                .append("UPDATE ")
-                .append(TABLE_NAME)
-                .append(" SET ")
-                .append(COL_2).append("=?").append(",")
-                .append(COL_3).append("=?").append(",")
-                .append(COL_4).append("=?").append(",")
-                .append(COL_5).append("=?").append(",")
-                .append(COL_6).append("=?").append(",")
-                .append(COL_7).append("=?")
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        UPDATE_QUERY = "UPDATE " +
+                TABLE_NAME +
+                " SET " +
+                COL_2 + "=?" + "," +
+                COL_3 + "=?" + "," +
+                COL_4 + "=?" + "," +
+                COL_5 + "=?" + "," +
+                COL_6 + "=?" + "," +
+                COL_7 + "=?" +
+                " WHERE " +
+                COL_1 + "=?";
 
-        DELETE_QUERY = new StringBuffer()
-                .append("DELETE FROM ")
-                .append(TABLE_NAME)
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        DELETE_QUERY = "DELETE FROM " +
+                TABLE_NAME +
+                " WHERE " +
+                COL_1 + "=?";
 
-        SELECT_QUERY = new StringBuffer()
-                .append("SELECT ")
-                .append("*")
-                .append(" FROM ")
-                .append(TABLE_NAME)
-                .toString();
-        SELECT_DAILY_PRICE_QUERY = new StringBuffer()
-                .append("SELECT ")
-                .append(COL_7)
-                .append(" FROM ")
-                .append(TABLE_NAME)
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        SELECT_QUERY = "SELECT " +
+                "*" +
+                " FROM " +
+                TABLE_NAME;
+        SELECT_DAILY_PRICE_QUERY = "SELECT " +
+                COL_7 +
+                " FROM " +
+                TABLE_NAME +
+                " WHERE " +
+                COL_1 + "=?";
     }
 
     @Override
@@ -102,9 +93,9 @@ public class VehicleDAOImpl implements IVehicleDAO {
             ps.setInt(5, vehicle.getSeats());
             ps.setBigDecimal(6, vehicle.getDailyPrice());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data inserted successfully");
+            LOGGER.info("Data inserted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -125,9 +116,9 @@ public class VehicleDAOImpl implements IVehicleDAO {
             ps.setBigDecimal(6, vehicle.getDailyPrice());
             ps.setInt(7, vehicle.getVehicleID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data updated successfully");
+            LOGGER.info("Data updated successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -142,9 +133,9 @@ public class VehicleDAOImpl implements IVehicleDAO {
             ps = cn.prepareStatement(DELETE_QUERY);
             ps.setInt(1, vehicle.getVehicleID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data deleted successfully");
+            LOGGER.info("Data deleted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -170,9 +161,9 @@ public class VehicleDAOImpl implements IVehicleDAO {
                         autoGearbox, airConditioner, seats, dailyPrice);
                 list.add(vehicleObj);
             }
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -198,7 +189,7 @@ public class VehicleDAOImpl implements IVehicleDAO {
             vehicleObj = new Vehicle(vehicleID, make, model, autoGearbox,
                     airConditioner, seats, dailyPrice);
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -215,13 +206,12 @@ public class VehicleDAOImpl implements IVehicleDAO {
             rs = ps.executeQuery();
             rs.next();
             dailyPrice = rs.getBigDecimal(1);
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
         return dailyPrice;
     }
-
 }

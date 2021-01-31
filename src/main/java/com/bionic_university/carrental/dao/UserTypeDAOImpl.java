@@ -1,8 +1,9 @@
 package com.bionic_university.carrental.dao;
 
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.entities.UserType;
 import com.bionic_university.carrental.idao.IUserTypeDAO;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.List;
  */
 public class UserTypeDAOImpl implements IUserTypeDAO {
 
+    public static final Logger LOGGER = Logger.getLogger(UserTypeDAOImpl.class);
     private Connection cn = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
@@ -30,35 +32,27 @@ public class UserTypeDAOImpl implements IUserTypeDAO {
     private final String SELECT_QUERY;
 
     {
-        INSERT_QUERY = new StringBuffer()
-                .append("INSERT INTO ")
-                .append(TABLE_NAME)
-                .append(" (")
-                .append(COL_2)
-                .append(") VALUES ")
-                .append("(?)")
-                .toString();
+        INSERT_QUERY = "INSERT INTO " +
+                TABLE_NAME +
+                " (" +
+                COL_2 +
+                ") VALUES " +
+                "(?)";
 
-        UPDATE_QUERY = new StringBuffer()
-                .append("UPDATE ")
-                .append(TABLE_NAME)
-                .append(" SET ")
-                .append(COL_2).append("=?")
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        UPDATE_QUERY = "UPDATE " +
+                TABLE_NAME +
+                " SET " +
+                COL_2 + "=?" +
+                " WHERE " +
+                COL_1 + "=?";
 
-        DELETE_QUERY = new StringBuffer()
-                .append("DELETE FROM ")
-                .append(TABLE_NAME)
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        DELETE_QUERY = "DELETE FROM " +
+                TABLE_NAME +
+                " WHERE " +
+                COL_1 + "=?";
 
-        SELECT_QUERY = new StringBuffer()
-                .append("SELECT * FROM ")
-                .append(TABLE_NAME)
-                .toString();
+        SELECT_QUERY = "SELECT * FROM " +
+                TABLE_NAME;
     }
 
     @Override
@@ -69,9 +63,9 @@ public class UserTypeDAOImpl implements IUserTypeDAO {
             ps = cn.prepareStatement(INSERT_QUERY);
             ps.setString(1, userType.getUsertype());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data inserted successfully");
+            LOGGER.info("Data inserted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -87,9 +81,9 @@ public class UserTypeDAOImpl implements IUserTypeDAO {
             ps.setString(1, userType.getUsertype());
             ps.setInt(2, userType.getUsertypeID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data updated successfully");
+            LOGGER.info("Data updated successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -104,9 +98,9 @@ public class UserTypeDAOImpl implements IUserTypeDAO {
             ps = cn.prepareStatement(DELETE_QUERY);
             ps.setInt(1, userType.getUsertypeID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data deleted successfully");
+            LOGGER.info("Data deleted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -126,13 +120,12 @@ public class UserTypeDAOImpl implements IUserTypeDAO {
                 UserType userTypeObj = new UserType(userTypeID, userType);
                 list.add(userTypeObj);
             }
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
         return list;
     }
-
 }

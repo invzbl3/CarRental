@@ -1,7 +1,6 @@
 package com.bionic_university.carrental.commands;
 
 import com.bionic_university.carrental.util.CommandHelper;
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.config.ConfigManager;
 import com.bionic_university.carrental.dao.DAOHelper;
 import com.bionic_university.carrental.daofactory.DAOFactory;
@@ -14,6 +13,8 @@ import com.bionic_university.carrental.idao.IOrderDAO;
 import com.bionic_university.carrental.idao.IPassportDAO;
 import com.bionic_university.carrental.idao.IUserDAO;
 import com.bionic_university.carrental.idao.IVehicleDAO;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -28,11 +29,12 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class CreateOrderCommand implements ICommand {
+    public static final Logger LOGGER = Logger.getLogger(CreateOrderCommand.class);
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
-        Lgr.LOGGER.info("Command called: " + this.getClass().getSimpleName());
+        LOGGER.info("Command called: " + this.getClass().getSimpleName());
         String page;
         try {
             CommandHelper.validateSession(session);
@@ -43,14 +45,14 @@ public class CreateOrderCommand implements ICommand {
             IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
             IUserDAO userDAO = DAOFactory.getUserDAO();
 
-            //create and insert new pasport
+            //create and insert new passport
             Passport passport = new Passport();
             passport.setLastName(req.getParameter(REQ_PARAM_LAST_NAME));
             passport.setFirstName(req.getParameter(REQ_PARAM_FIRST_NAME));
             passport.setPatronymic(req.getParameter(REQ_PARAM_PATRONYMIC));
             passport.setBirthday(Date.valueOf(req.getParameter(REQ_PARAM_BIRTHDAY)));
-            passport.setpSeries(req.getParameter(REQ_PARAM_P_SERIES));
-            passport.setpNumber(req.getParameter(REQ_PARAM_P_NUMBER));
+            passport.setPassportSeries(req.getParameter(REQ_PARAM_P_SERIES));
+            passport.setPassportNumber(req.getParameter(REQ_PARAM_P_NUMBER));
             passport.setWhoIssued(req.getParameter(REQ_PARAM_WHO_ISSUED));
             passport.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
             int passportID = passportDAO.insert(passport);
@@ -62,7 +64,7 @@ public class CreateOrderCommand implements ICommand {
 
             //create and insert new order
             Order order = new Order();
-            int vehicleID = Integer.valueOf(req.getParameter(REQ_PARAM_VEHICLE_ID));
+            int vehicleID = Integer.parseInt(req.getParameter(REQ_PARAM_VEHICLE_ID));
             Vehicle vehicle = vehicleDAO.findByID(vehicleID);
             order.setVehicle(vehicle);
             int userID = (Integer) session.getAttribute(SESS_PARAM_USER_ID);
@@ -75,7 +77,7 @@ public class CreateOrderCommand implements ICommand {
             order.setDropOffDate(Timestamp.valueOf(CalculateCostCommand
                     .convertDateFormat(req
                             .getParameter(CalculateCostCommand.REQ_PARAM_DROP_OFF_DATE))));
-            order.setRentCost(BigDecimal.valueOf((Double.valueOf(req.
+            order.setRentCost(BigDecimal.valueOf((Double.parseDouble(req.
                     getParameter(CalculateCostCommand.REQ_PARAM_RENT_COST)))));
             int insertOrderCode = orderDAO.insert(order);
             if (insertOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
@@ -85,12 +87,12 @@ public class CreateOrderCommand implements ICommand {
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.INFO_ORDER_PAGE_PATH);
         } catch (SessionTimeoutException e) {
-            Lgr.LOGGER.error("session timed out: " + e);
+            LOGGER.error("session timed out: " + e);
             req.setAttribute(SESS_PARAM_ERROR_MESSAGE, SESSION_TIMEOUT_ERROR_MESSAGE);
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ERROR_PAGE_PATH);
         } catch (IllegalArgumentException e) {
-            Lgr.LOGGER.error("Error while creating order " + e);
+            LOGGER.error("Error while creating order " + e);
             req.setAttribute(SESS_PARAM_ERROR_MESSAGE, ORDER_NOT_CREATED_ERROR_MESSAGE);
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ERROR_PAGE_PATH);

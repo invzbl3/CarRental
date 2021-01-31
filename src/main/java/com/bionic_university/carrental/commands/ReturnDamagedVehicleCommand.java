@@ -1,13 +1,14 @@
 package com.bionic_university.carrental.commands;
 
 import com.bionic_university.carrental.util.CommandHelper;
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.config.ConfigManager;
 import com.bionic_university.carrental.dao.DAOHelper;
 import com.bionic_university.carrental.daofactory.DAOFactory;
 import com.bionic_university.carrental.entities.Order;
 import com.bionic_university.carrental.exceptions.SessionTimeoutException;
 import com.bionic_university.carrental.idao.IOrderDAO;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import javax.servlet.ServletException;
@@ -22,10 +23,12 @@ import javax.servlet.http.HttpSession;
  */
 public class ReturnDamagedVehicleCommand implements ICommand {
 
+    public static final Logger LOGGER = Logger.getLogger(ReturnDamagedVehicleCommand.class);
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
-        Lgr.LOGGER.info("Command called: " + this.getClass().getSimpleName());
+        LOGGER.info("Command called: " + this.getClass().getSimpleName());
         String page;
         try {
             CommandHelper.validateSession(session);
@@ -35,13 +38,13 @@ public class ReturnDamagedVehicleCommand implements ICommand {
             System.out.println(req.getParameter(REQ_PARAM_DAMAGE_COST));
 
             IOrderDAO orderDAO = DAOFactory.getOrderDAO();
-            Order order = orderDAO.findByID(Integer.valueOf(req.
+            Order order = orderDAO.findByID(Integer.parseInt(req.
                     getParameter(REQ_PARAM_ORDER_ID)));
             order.setReturned(true);
             order.setDamaged(true);
             order.setDamageDesc(req.getParameter(REQ_PARAM_DAMAGE_DESC));
             BigDecimal damageCost = BigDecimal.valueOf(Double
-                    .valueOf(req.getParameter(REQ_PARAM_DAMAGE_COST)));
+                    .parseDouble(req.getParameter(REQ_PARAM_DAMAGE_COST)));
             order.setDamageCost(damageCost);
             int updateOrderCode = orderDAO.update(order);
             if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
@@ -55,12 +58,11 @@ public class ReturnDamagedVehicleCommand implements ICommand {
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ERROR_PAGE_PATH);
         } catch (IllegalArgumentException e) {
-            Lgr.LOGGER.error("Error while updating order " + e);
+            LOGGER.error("Error while updating order " + e);
             req.setAttribute(SESS_PARAM_ERROR_MESSAGE, ORDER_NOT_UPDATED_ERROR_MESSAGE);
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ERROR_PAGE_PATH);
         }
         return page;
-
     }
 }

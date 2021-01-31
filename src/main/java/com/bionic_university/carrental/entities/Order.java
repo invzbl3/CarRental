@@ -3,6 +3,8 @@ package com.bionic_university.carrental.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+
+import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -12,6 +14,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * A bean for "orders" table
  *
  */
+@Data
 public class Order implements Serializable {
 
     private int orderID;
@@ -54,134 +57,6 @@ public class Order implements Serializable {
         this.damaged = damaged;
         this.damageDesc = damageDesc;
         this.damageCost = damageCost;
-        this.paid = paid;
-    }
-
-    public int getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Passport getPassport() {
-        return passport;
-    }
-
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-    }
-
-    public Timestamp getPickUpDate() {
-        return pickUpDate;
-    }
-
-    public void setPickUpDate(Timestamp pickUpDate) {
-        this.pickUpDate = pickUpDate;
-    }
-
-    public Timestamp getDropOffDate() {
-        return dropOffDate;
-    }
-
-    public void setDropOffDate(Timestamp dropOffDate) {
-        this.dropOffDate = dropOffDate;
-    }
-
-    public BigDecimal getRentCost() {
-        return rentCost;
-    }
-
-    public void setRentCost(BigDecimal rentCost) {
-        this.rentCost = rentCost;
-    }
-
-    public boolean isProcessed() {
-        return processed;
-    }
-
-    public void setProcessed(boolean processed) {
-        this.processed = processed;
-    }
-
-    public boolean isRejected() {
-        return rejected;
-    }
-
-    public void setRejected(boolean rejected) {
-        this.rejected = rejected;
-    }
-
-    public String getRejectDesc() {
-        return rejectDesc;
-    }
-
-    public void setRejectDesc(String rejectDesc) {
-        this.rejectDesc = rejectDesc;
-    }
-
-    public boolean isPicked() {
-        return picked;
-    }
-
-    public void setPicked(boolean picked) {
-        this.picked = picked;
-    }
-
-    public boolean isReturned() {
-        return returned;
-    }
-
-    public void setReturned(boolean returned) {
-        this.returned = returned;
-    }
-
-    public boolean isDamaged() {
-        return damaged;
-    }
-
-    public void setDamaged(boolean damaged) {
-        this.damaged = damaged;
-    }
-
-    public String getDamageDesc() {
-        return damageDesc;
-    }
-
-    public void setDamageDesc(String damageDesc) {
-        this.damageDesc = damageDesc;
-    }
-
-    public BigDecimal getDamageCost() {
-        return damageCost;
-    }
-
-    public void setDamageCost(BigDecimal damageCost) {
-        this.damageCost = damageCost;
-    }
-
-    public boolean isPaid() {
-        return paid;
-    }
-
-    public void setPaid(boolean paid) {
         this.paid = paid;
     }
 
@@ -260,5 +135,4 @@ public class Order implements Serializable {
                 .append(paid, other.paid)
                 .isEquals();
     }
-
 }

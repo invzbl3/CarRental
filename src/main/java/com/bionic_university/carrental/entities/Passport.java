@@ -2,6 +2,8 @@ package com.bionic_university.carrental.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+
+import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -11,6 +13,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * A bean for "passports" table
  *
  */
+@Data
 public class Passport implements Serializable {
 
     private int passportID;
@@ -18,8 +21,8 @@ public class Passport implements Serializable {
     private String firstName;
     private String patronymic;
     private Date birthday;
-    private String pSeries;
-    private String pNumber;
+    private String passportSeries;
+    private String passportNumber;
     private String whoIssued;
     private Date whenIssued;
 
@@ -27,88 +30,16 @@ public class Passport implements Serializable {
     }
 
     public Passport(int passportID, String lastName, String firstName,
-            String patronymic, Date birthday, String pSeries,
-            String pNumber, String whoIssued, Date whenIssued) {
+            String patronymic, Date birthday, String passportSeries,
+            String passportNumber, String whoIssued, Date whenIssued) {
         this.passportID = passportID;
         this.lastName = lastName;
         this.firstName = firstName;
         this.patronymic = patronymic;
         this.birthday = birthday;
-        this.pSeries = pSeries;
-        this.pNumber = pNumber;
+        this.passportSeries = passportSeries;
+        this.passportNumber = passportNumber;
         this.whoIssued = whoIssued;
-        this.whenIssued = whenIssued;
-    }
-
-    public int getPassportID() {
-        return passportID;
-    }
-
-    public void setPassportID(int passportID) {
-        this.passportID = passportID;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getpSeries() {
-        return pSeries;
-    }
-
-    public void setpSeries(String pSeries) {
-        this.pSeries = pSeries;
-    }
-
-    public String getpNumber() {
-        return pNumber;
-    }
-
-    public void setpNumber(String pNumber) {
-        this.pNumber = pNumber;
-    }
-
-    public String getWhoIssued() {
-        return whoIssued;
-    }
-
-    public void setWhoIssued(String whoIssued) {
-        this.whoIssued = whoIssued;
-    }
-
-    public Date getWhenIssued() {
-        return whenIssued;
-    }
-
-    public void setWhenIssued(Date whenIssued) {
         this.whenIssued = whenIssued;
     }
 
@@ -125,7 +56,7 @@ public class Passport implements Serializable {
             sb.append(patronymic).append("\n");
         }
         sb.append(birthday).append("\n");
-        sb.append(pSeries).append(pNumber).append("\n");
+        sb.append(passportSeries).append(passportNumber).append("\n");
         sb.append(whoIssued).append(" ").append(whenIssued);
         return sb.toString();
     }
@@ -138,8 +69,8 @@ public class Passport implements Serializable {
                 .append("firstName", firstName)
                 .append("patronymic", patronymic)
                 .append("birthday", birthday)
-                .append("pSeries", pSeries)
-                .append("pNumber", pNumber)
+                .append("passportSeries", passportSeries)
+                .append("passportNumber", passportNumber)
                 .append("whoIssued", whoIssued)
                 .append("whenIssued", whenIssued)
                 .toString();
@@ -153,8 +84,8 @@ public class Passport implements Serializable {
                 .append(firstName)
                 .append(patronymic)
                 .append(birthday)
-                .append(pSeries)
-                .append(pNumber)
+                .append(passportSeries)
+                .append(passportNumber)
                 .append(whoIssued)
                 .append(whenIssued)
                 .toHashCode();
@@ -178,11 +109,10 @@ public class Passport implements Serializable {
                 .append(firstName, other.firstName)
                 .append(patronymic, other.patronymic)
                 .append(birthday, other.birthday)
-                .append(pSeries, other.pSeries)
-                .append(pNumber, other.pNumber)
+                .append(passportSeries, other.passportSeries)
+                .append(passportNumber, other.passportNumber)
                 .append(whoIssued, other.whoIssued)
                 .append(whenIssued, other.whenIssued)
                 .isEquals();
     }
-
 }

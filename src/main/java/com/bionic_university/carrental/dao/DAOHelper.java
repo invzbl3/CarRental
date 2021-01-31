@@ -1,7 +1,7 @@
 package com.bionic_university.carrental.dao;
 
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.datasource.ConnectionManager;
+import org.apache.log4j.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +12,8 @@ import java.sql.SQLException;
  *
  */
 public class DAOHelper {
+
+    public static final Logger LOGGER = Logger.getLogger(DAOHelper.class);
 
     //code representing that executeUpdate command ended with error
     public final static int EXECUTE_UPDATE_ERROR_CODE = -88;
@@ -36,7 +38,7 @@ public class DAOHelper {
                 freeConnection(cn);
             }
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         }
     }
 }

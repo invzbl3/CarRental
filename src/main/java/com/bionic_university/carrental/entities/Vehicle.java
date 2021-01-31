@@ -2,6 +2,7 @@ package com.bionic_university.carrental.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -11,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * A bean for "vehicles" table
  *
  */
+@Data
 public class Vehicle implements Serializable {
 
     private int vehicleID;
@@ -33,62 +35,6 @@ public class Vehicle implements Serializable {
         this.autoGearbox = autoGearbox;
         this.airConditioner = airConditioner;
         this.seats = seats;
-        this.dailyPrice = dailyPrice;
-    }
-
-    public int getVehicleID() {
-        return vehicleID;
-    }
-
-    public void setVehicleID(int vehicleID) {
-        this.vehicleID = vehicleID;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public boolean isAutoGearbox() {
-        return autoGearbox;
-    }
-
-    public void setAutoGearbox(boolean autoGearbox) {
-        this.autoGearbox = autoGearbox;
-    }
-
-    public boolean isAirConditioner() {
-        return airConditioner;
-    }
-
-    public void setAirConditioner(boolean airConditioner) {
-        this.airConditioner = airConditioner;
-    }
-
-    public int getSeats() {
-        return seats;
-    }
-
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
-
-    public BigDecimal getDailyPrice() {
-        return dailyPrice;
-    }
-
-    public void setDailyPrice(BigDecimal dailyPrice) {
         this.dailyPrice = dailyPrice;
     }
 
@@ -161,5 +107,4 @@ public class Vehicle implements Serializable {
                 .append(dailyPrice, other.dailyPrice)
                 .isEquals();
     }
-
 }

@@ -1,7 +1,6 @@
 package com.bionic_university.carrental.dao;
 
 import com.bionic_university.carrental.daofactory.DAOFactory;
-import com.bionic_university.carrental.util.Lgr;
 import com.bionic_university.carrental.entities.Order;
 import com.bionic_university.carrental.entities.Passport;
 import com.bionic_university.carrental.entities.User;
@@ -10,6 +9,8 @@ import com.bionic_university.carrental.idao.IOrderDAO;
 import com.bionic_university.carrental.idao.IPassportDAO;
 import com.bionic_university.carrental.idao.IUserDAO;
 import com.bionic_university.carrental.idao.IVehicleDAO;
+import org.apache.log4j.Logger;
+
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,6 +26,7 @@ import java.util.List;
  */
 public class OrderDAOImpl implements IOrderDAO {
 
+    public static final Logger LOGGER = Logger.getLogger(OrderDAOImpl.class);
     private Connection cn = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
@@ -57,63 +59,55 @@ public class OrderDAOImpl implements IOrderDAO {
     private final IPassportDAO PASSPORT_DAO = DAOFactory.getPassportDAO();
 
     {
-        INSERT_QUERY = new StringBuffer()
-                .append("INSERT INTO ")
-                .append(TABLE_NAME)
-                .append(" (")
-                .append(COL_2).append(",")
-                .append(COL_3).append(",")
-                .append(COL_4).append(",")
-                .append(COL_5).append(",")
-                .append(COL_6).append(",")
-                .append(COL_7).append(",")
-                .append(COL_8).append(",")
-                .append(COL_9).append(",")
-                .append(COL_10).append(",")
-                .append(COL_11).append(",")
-                .append(COL_12).append(",")
-                .append(COL_13).append(",")
-                .append(COL_14).append(",")
-                .append(COL_15).append(",")
-                .append(COL_16)
-                .append(") VALUES ")
-                .append("(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")
-                .toString();
+        INSERT_QUERY = "INSERT INTO " +
+                TABLE_NAME +
+                " (" +
+                COL_2 + "," +
+                COL_3 + "," +
+                COL_4 + "," +
+                COL_5 + "," +
+                COL_6 + "," +
+                COL_7 + "," +
+                COL_8 + "," +
+                COL_9 + "," +
+                COL_10 + "," +
+                COL_11 + "," +
+                COL_12 + "," +
+                COL_13 + "," +
+                COL_14 + "," +
+                COL_15 + "," +
+                COL_16 +
+                ") VALUES " +
+                "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        UPDATE_QUERY = new StringBuffer()
-                .append("UPDATE ")
-                .append(TABLE_NAME)
-                .append(" SET ")
-                .append(COL_2).append("=?").append(",")
-                .append(COL_3).append("=?").append(",")
-                .append(COL_4).append("=?").append(",")
-                .append(COL_5).append("=?").append(",")
-                .append(COL_6).append("=?").append(",")
-                .append(COL_7).append("=?").append(",")
-                .append(COL_8).append("=?").append(",")
-                .append(COL_9).append("=?").append(",")
-                .append(COL_10).append("=?").append(",")
-                .append(COL_11).append("=?").append(",")
-                .append(COL_12).append("=?").append(",")
-                .append(COL_13).append("=?").append(",")
-                .append(COL_14).append("=?").append(",")
-                .append(COL_15).append("=?").append(",")
-                .append(COL_16).append("=?")
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        UPDATE_QUERY = "UPDATE " +
+                TABLE_NAME +
+                " SET " +
+                COL_2 + "=?" + "," +
+                COL_3 + "=?" + "," +
+                COL_4 + "=?" + "," +
+                COL_5 + "=?" + "," +
+                COL_6 + "=?" + "," +
+                COL_7 + "=?" + "," +
+                COL_8 + "=?" + "," +
+                COL_9 + "=?" + "," +
+                COL_10 + "=?" + "," +
+                COL_11 + "=?" + "," +
+                COL_12 + "=?" + "," +
+                COL_13 + "=?" + "," +
+                COL_14 + "=?" + "," +
+                COL_15 + "=?" + "," +
+                COL_16 + "=?" +
+                " WHERE " +
+                COL_1 + "=?";
 
-        DELETE_QUERY = new StringBuffer()
-                .append("DELETE FROM ")
-                .append(TABLE_NAME)
-                .append(" WHERE ")
-                .append(COL_1).append("=?")
-                .toString();
+        DELETE_QUERY = "DELETE FROM " +
+                TABLE_NAME +
+                " WHERE " +
+                COL_1 + "=?";
 
-        SELECT_QUERY = new StringBuffer()
-                .append("SELECT * FROM ")
-                .append(TABLE_NAME)
-                .toString();
+        SELECT_QUERY = "SELECT * FROM " +
+                TABLE_NAME;
     }
 
     @Override
@@ -138,9 +132,9 @@ public class OrderDAOImpl implements IOrderDAO {
             ps.setBigDecimal(14, order.getDamageCost());
             ps.setBoolean(15, order.isPaid());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data inserted successfully");
+            LOGGER.info("Data inserted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -170,9 +164,9 @@ public class OrderDAOImpl implements IOrderDAO {
             ps.setBoolean(15, order.isPaid());
             ps.setInt(16, order.getOrderID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data updated successfully");
+            LOGGER.info("Data updated successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -187,9 +181,9 @@ public class OrderDAOImpl implements IOrderDAO {
             ps = cn.prepareStatement(DELETE_QUERY);
             ps.setInt(1, order.getOrderID());
             result = ps.executeUpdate();
-            Lgr.LOGGER.info("Data deleted successfully");
+            LOGGER.info("Data deleted successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -230,9 +224,9 @@ public class OrderDAOImpl implements IOrderDAO {
                         damaged, damageDesc, damageCost, paid);
                 list.add(orderObj);
             }
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }
@@ -271,9 +265,9 @@ public class OrderDAOImpl implements IOrderDAO {
                     passport, pickUpDate, dropOffDate, rentCost,
                     processed, rejected, rejectDesc, picked, returned,
                     damaged, damageDesc, damageCost, paid);
-            Lgr.LOGGER.info("Data selected successfully");
+            LOGGER.info("Data selected successfully");
         } catch (SQLException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         } finally {
             DAOHelper.closeResources(cn, ps, rs);
         }

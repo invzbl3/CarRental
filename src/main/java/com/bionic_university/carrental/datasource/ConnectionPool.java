@@ -1,6 +1,8 @@
 package com.bionic_university.carrental.datasource;
 
-import com.bionic_university.carrental.util.Lgr;
+import com.bionic_university.carrental.dao.UserTypeDAOImpl;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.naming.InitialContext;
@@ -14,6 +16,8 @@ import javax.sql.DataSource;
  */
 public class ConnectionPool {
 
+    public static final Logger LOGGER = Logger.getLogger(ConnectionPool.class);
+
     InitialContext initialContext;
     DataSource dataSource;
 
@@ -23,18 +27,18 @@ public class ConnectionPool {
             dataSource = (javax.sql.DataSource) initialContext
                     .lookup("java:comp/env/jdbc/appname");
         } catch (NamingException e) {
-            Lgr.LOGGER.error(e);
+            LOGGER.error(e);
         }
     }
 
     public Connection getConnection() throws SQLException {
         Connection connection = dataSource.getConnection();
-        Lgr.LOGGER.debug("getConnection called" + connection);
+        LOGGER.debug("getConnection called" + connection);
         return connection;
     }
 
     public void freeConnection(Connection connection) throws SQLException {
-        Lgr.LOGGER.debug("freeConnection called" + connection);
+        LOGGER.debug("freeConnection called" + connection);
         connection.close();
     }
 }

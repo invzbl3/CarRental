@@ -1,7 +1,7 @@
 package com.bionic_university.carrental.commands;
 
 import com.bionic_university.carrental.config.ConfigManager;
-import com.bionic_university.carrental.util.Lgr;
+import org.apache.log4j.Logger;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +15,13 @@ import javax.servlet.http.HttpSession;
  */
 public class NoCommand implements ICommand {
 
+    public static final Logger LOGGER = Logger.getLogger(NoCommand.class);
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
-        Lgr.LOGGER.info("Command called: " + this.getClass().getSimpleName());
-        String page = ConfigManager.getInstance()
+        LOGGER.info("Command called: " + this.getClass().getSimpleName());
+        return ConfigManager.getInstance()
                 .getProperty(ConfigManager.INDEX_PAGE_PATH);
-        return page;
     }
 }

@@ -13,5 +13,4 @@ public class SessionTimeoutException extends Exception {
     public SessionTimeoutException(Throwable cause) {
         super(cause);
     }
-
 }

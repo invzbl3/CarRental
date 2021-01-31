@@ -12,6 +12,7 @@ import javax.servlet.ServletResponse;
  * Filter class for setting the proper encoding for request and responses
  *
  */
+
 public class FormEncodingSetterFilter implements Filter {
 
     private static final String FILTERABLE_CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -42,5 +43,4 @@ public class FormEncodingSetterFilter implements Filter {
     @Override
     public void destroy() {
     }
-
 }

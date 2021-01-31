@@ -32,6 +32,6 @@ public class ConnectionManager {
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException("Singletone");
+        throw new CloneNotSupportedException("Singleton");
     }
 }
