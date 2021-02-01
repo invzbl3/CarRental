@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>CarRentalServlet</servlet-name>
-        <servlet-class>com.bionic_university.carrental.servlet.CarRentalServlet</servlet-class>
+        <servlet-class>com.project.carrental.servlet.CarRentalServlet</servlet-class>
         <init-param>
             <param-name>log4j-init-file</param-name>
             <param-value>\WEB-INF\classes\log4j.properties</param-value>
@@ -39,7 +39,7 @@
     <filter>
         <filter-name>FormEncodingSetterFilter</filter-name>
         <filter-class>
-            com.bionic_university.carrental.filters.FormEncodingSetterFilter
+            com.project.carrental.filters.FormEncodingSetterFilter
         </filter-class>
         <init-param>
             <param-name>encoding</param-name>

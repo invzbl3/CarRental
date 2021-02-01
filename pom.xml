@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <groupId>com.bionic_university.carrental</groupId>
+    <groupId>com.project.carrental</groupId>
     <artifactId>CarRental</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 

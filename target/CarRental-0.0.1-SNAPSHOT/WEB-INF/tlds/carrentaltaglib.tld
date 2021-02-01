@@ -22,12 +22,12 @@
     -->
   <tag>
     <name>loadVehicleList</name>
-    <tag-class>com.bionic_university.carrental.tags.LoadVehicleListTag</tag-class>
+    <tag-class>com.project.carrental.tags.LoadVehicleListTag</tag-class>
     <body-content>empty</body-content>
   </tag>
   <tag>
     <name>loadOrderList</name>
-    <tag-class>com.bionic_university.carrental.tags.LoadOrderListTag</tag-class>
+    <tag-class>com.project.carrental.tags.LoadOrderListTag</tag-class>
     <body-content>empty</body-content>
   </tag>
 </taglib>

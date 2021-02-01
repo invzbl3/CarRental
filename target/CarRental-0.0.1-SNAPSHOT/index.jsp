@@ -34,6 +34,8 @@
         <!-- SB Admin CSS - Include with every page -->
         <link href="css/sb-admin.css" rel="stylesheet"/>
 
+        <!-- CSS - Include custom styles -->
+        <link href="css/custom.css" rel="stylesheet"/>
     </head>
 
     <body>

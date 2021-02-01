@@ -13,21 +13,6 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../CarRental/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../test_final_project7/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../test_final_project7/src/main/java/by/shakhrai/epam/web/task/controller/MainControllerTest.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
@@ -528,6 +513,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/daofactory/DAOFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/!CarRental create DB script.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/config.properties">
           <value>
             <set />
@@ -559,6 +554,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/webapp/css/custom.css">
           <value>
             <set />
           </value>
@@ -608,12 +608,12 @@
             <set />
           </value>
         </entry>
-        <entry key="F:/IdeaProject/test_final_project9/src/main/java/com/bionic_university/carrental/config/config.properties">
+        <entry key="$PROJECT_DIR$/../test_final_project7/pom.xml">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="F:/IdeaProject/test_final_project9/src/main/webapp/META-INF/context.xml">
+        <entry key="$PROJECT_DIR$/../test_final_project7/src/main/java/by/shakhrai/epam/web/task/controller/MainControllerTest.java">
           <value>
             <set />
           </value>
