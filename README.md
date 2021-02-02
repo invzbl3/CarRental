@@ -22,4 +22,5 @@ To see the full size image press it and select "Raw".
 - Cyrillic alphabet is fully supported;
 - Event logging with Log4j.
 
+## UML class diagram
 ![carrental@localhost](https://user-images.githubusercontent.com/24904825/106620839-a3981280-657a-11eb-9360-a63c7566c59f.png)
