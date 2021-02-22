@@ -29,9 +29,8 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 public class CommandFactory {
-    private VehicleService vehicleService = null;
 
-    
+
     private static CommandFactory instance;
     HashMap<String, ICommand> commands = new HashMap<>();
 
@@ -45,7 +44,7 @@ public class CommandFactory {
         commands.put("makeOrderButton", new MakeOrderButtonCommand());
         commands.put("adminZoneButton", new AdminZoneButtonCommand());
 
-        commands.put("calculateCost", new CalculateCostCommand(vehicleService));
+        commands.put("calculateCost", new CalculateCostCommand(new VehicleService()));
         commands.put("createOrder", new CreateOrderCommand());
 
         commands.put("loadOrderList", new LoadOrderListCommand());
