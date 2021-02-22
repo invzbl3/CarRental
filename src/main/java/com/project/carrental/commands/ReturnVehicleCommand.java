@@ -1,5 +1,6 @@
 package com.project.carrental.commands;
 
+import com.project.carrental.services.OrderService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
 import com.project.carrental.dao.DAOHelper;
@@ -24,6 +25,13 @@ public class ReturnVehicleCommand implements ICommand {
 
     public static final Logger LOGGER = Logger.getLogger(ReturnVehicleCommand.class);
 
+    private final OrderService orderService;
+
+    public ReturnVehicleCommand(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
@@ -32,11 +40,16 @@ public class ReturnVehicleCommand implements ICommand {
         try {
             CommandHelper.validateSession(session);
 
-            IOrderDAO orderDAO = DAOFactory.getOrderDAO();
+            /*IOrderDAO orderDAO = DAOFactory.getOrderDAO();
             Order order = orderDAO.findByID(Integer.parseInt(req.
-                    getParameter(REQ_PARAM_ORDER_ID)));
-            order.setReturned(true);
-            int updateOrderCode = orderDAO.update(order);
+                    getParameter(REQ_PARAM_ORDER_ID)));*/
+            int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
+
+            /*order.setReturned(true);
+            int updateOrderCode = orderDAO.update(order);*/
+
+            int updateOrderCode = orderService.returnVehicle(orderId);
+
             if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
             }

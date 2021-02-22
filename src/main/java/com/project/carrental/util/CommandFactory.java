@@ -53,12 +53,12 @@ public class CommandFactory {
         commands.put("selectOrder", new SelectOrderCommand());
 
         commands.put("confirmOrder", new ConfirmOrderCommand(new OrderService()));
-        commands.put("rejectOrder", new RejectOrderCommand());
-        commands.put("giveVehicle", new GiveVehicleCommand());
-        commands.put("returnVehicle", new ReturnVehicleCommand());
+        commands.put("rejectOrder", new RejectOrderCommand(new OrderService()));
+        commands.put("giveVehicle", new GiveVehicleCommand(new OrderService()));
+        commands.put("returnVehicle", new ReturnVehicleCommand(new OrderService()));
         commands.put("returnDamagedVehicle", new ReturnDamagedVehicleCommand());
         commands.put("confirmPayment", new ConfirmPaymentCommand(new PaymentService()));
-        commands.put("resetOrder", new ResetOrderCommand());
+        commands.put("resetOrder", new ResetOrderCommand(new OrderService()));
     }
 
     public static synchronized CommandFactory getInstance() {

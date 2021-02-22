@@ -7,7 +7,7 @@ import com.project.carrental.idao.IOrderDAO;
 public class PaymentService {
     IOrderDAO orderDAO = DAOFactory.getOrderDAO();
 
-    public int update(int orderId) {
+    public int confirmPayment(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setPaid(true);
         return orderDAO.update(order);

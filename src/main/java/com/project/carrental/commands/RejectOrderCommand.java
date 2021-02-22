@@ -1,5 +1,6 @@
 package com.project.carrental.commands;
 
+import com.project.carrental.services.OrderService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
 import com.project.carrental.dao.DAOHelper;
@@ -22,6 +23,12 @@ import javax.servlet.http.HttpSession;
 public class RejectOrderCommand implements ICommand {
 
     public static final Logger LOGGER = Logger.getLogger(RejectOrderCommand.class);
+    private final OrderService orderService;
+
+    public RejectOrderCommand(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
@@ -31,13 +38,18 @@ public class RejectOrderCommand implements ICommand {
         try {
             CommandHelper.validateSession(session);
 
-            IOrderDAO orderDAO = DAOFactory.getOrderDAO();
+            /*IOrderDAO orderDAO = DAOFactory.getOrderDAO();
             Order order = orderDAO.findByID(Integer.parseInt(req.
-                    getParameter(REQ_PARAM_ORDER_ID)));
-            order.setProcessed(true);
+                    getParameter(REQ_PARAM_ORDER_ID)));*/
+            int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
+            String rejectDesc = req.getParameter(REQ_PARAM_REJECT_DESC);
+            /*order.setProcessed(true);
             order.setRejected(true);
             order.setRejectDesc(req.getParameter(REQ_PARAM_REJECT_DESC));
-            int updateOrderCode = orderDAO.update(order);
+            int updateOrderCode = orderDAO.update(order);*/
+
+            int updateOrderCode = orderService.rejectOrder(orderId, rejectDesc);
+
             if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
             }
