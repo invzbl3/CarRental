@@ -36,16 +36,16 @@ public class ConfirmOrderCommand implements ICommand {
         try {
             CommandHelper.validateSession(session);
 
-            IOrderDAO orderDAO = DAOFactory.getOrderDAO();
-            Order order = orderDAO.findByID(Integer.parseInt(req.
-                    getParameter(REQ_PARAM_ORDER_ID)));
-
+            //IOrderDAO orderDAO = DAOFactory.getOrderDAO();
+            /*Order order = orderDAO.findByID(Integer.parseInt(req.
+                    getParameter(REQ_PARAM_ORDER_ID)));*/
+            int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
             /*order.setProcessed(true);
             order.setRejected(false);
             order.setRejectDesc(null);
             int updateOrderCode = orderDAO.update(order);*/
 
-            int updateOrderCode = orderService.update(orderDAO, order);
+            int updateOrderCode = orderService.update(orderId);
 
             if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");

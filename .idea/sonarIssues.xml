@@ -538,6 +538,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/ConfirmPaymentCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/CreateOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/GiveVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/HomeButtonCommand.java">
           <value>
             <set />
@@ -569,6 +584,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/OrderService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/PaymentService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/UserService.java">
           <value>
             <set />
           </value>

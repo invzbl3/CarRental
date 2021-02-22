@@ -4,14 +4,12 @@ import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.Order;
 import com.project.carrental.idao.IOrderDAO;
 
-public class OrderService {
+public class PaymentService {
     IOrderDAO orderDAO = DAOFactory.getOrderDAO();
 
     public int update(int orderId) {
         Order order = orderDAO.findByID(orderId);
-        order.setProcessed(true);
-        order.setRejected(false);
-        order.setRejectDesc(null);
+        order.setPaid(true);
         return orderDAO.update(order);
     }
 }
