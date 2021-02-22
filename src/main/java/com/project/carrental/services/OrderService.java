@@ -4,6 +4,8 @@ import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.Order;
 import com.project.carrental.idao.IOrderDAO;
 
+import java.math.BigDecimal;
+
 public class OrderService {
     IOrderDAO orderDAO = DAOFactory.getOrderDAO();
 
@@ -46,6 +48,15 @@ public class OrderService {
     public int returnVehicle(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setReturned(true);
+        return orderDAO.update(order);
+    }
+
+    public int returnDamagedVehicle(int orderId, double damageCost, String damageDesc) {
+        Order order = orderDAO.findByID(orderId);
+        order.setReturned(true);
+        order.setDamaged(true);
+        order.setDamageDesc(damageDesc);
+        order.setDamageCost(BigDecimal.valueOf(damageCost));
         return orderDAO.update(order);
     }
 }

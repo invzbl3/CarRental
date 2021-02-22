@@ -568,6 +568,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/ReturnDamagedVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/ReturnVehicleCommand.java">
           <value>
             <set />
