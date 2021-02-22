@@ -16,9 +16,9 @@ import static com.project.carrental.commands.ICommand.REQ_PARAM_PICK_UP_DATE;
 
 public class VehicleService {
     public static final Logger LOGGER = Logger.getLogger(CalculateCostCommand.class);
+    IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
 
     public BigDecimal calculateCost(int vehicleID, Timestamp pick, Timestamp drop) {
-        IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
         int rentInterval = daysBetween(pick, drop);
         BigDecimal dailyPrice = vehicleDAO.findDailyPriceByVehicleID(vehicleID);
         return calcRentCost(dailyPrice, rentInterval);
