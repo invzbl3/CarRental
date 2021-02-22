@@ -19,6 +19,8 @@ import com.project.carrental.commands.ResetOrderCommand;
 import com.project.carrental.commands.ReturnDamagedVehicleCommand;
 import com.project.carrental.commands.ReturnVehicleCommand;
 import com.project.carrental.commands.SelectOrderCommand;
+import com.project.carrental.services.VehicleService;
+
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,7 +29,9 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 public class CommandFactory {
+    private VehicleService vehicleService = null;
 
+    
     private static CommandFactory instance;
     HashMap<String, ICommand> commands = new HashMap<>();
 
@@ -41,7 +45,7 @@ public class CommandFactory {
         commands.put("makeOrderButton", new MakeOrderButtonCommand());
         commands.put("adminZoneButton", new AdminZoneButtonCommand());
 
-        commands.put("calculateCost", new CalculateCostCommand());
+        commands.put("calculateCost", new CalculateCostCommand(vehicleService));
         commands.put("createOrder", new CreateOrderCommand());
 
         commands.put("loadOrderList", new LoadOrderListCommand());

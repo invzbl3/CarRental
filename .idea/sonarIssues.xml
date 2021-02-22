@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="/GridCellEditorTextField">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.3.RELEASE/spring-security-core-4.1.3.RELEASE.jar!/org/springframework/security/authentication/dao/DaoAuthenticationProvider.class">
           <value>
             <set />
           </value>
@@ -513,7 +528,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/CalculateCostCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/ConfirmOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/HomeButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/dao/DAOHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/daofactory/DAOFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/entities/Order.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/entities/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/idao/IVehicleDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/VehicleService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/util/CommandFactory.java">
           <value>
             <set />
           </value>
@@ -608,12 +668,847 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/CarRentalSpringApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/config/ConfigManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/controller/CarRentalController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/DaoHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/IVehicleDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/daofactory/DaoFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/idao/IOrderDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/idao/IPassportDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/idao/IUserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/idao/IUserTypeDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/idao/IVehicleDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/dao/impl/UserTypeDaoImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/datasource/ConnectionManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/datasource/ConnectionPool.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entities/Order.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entities/Passport.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entities/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entities/UserType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entities/Vehicle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entity/Order.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entity/Passport.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entity/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entity/UserType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/entity/Vehicle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/exception/SessionTimeoutException.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/repository/OrderRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/repository/PassportRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/repository/UserTypeRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/repository/VehicleRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/security/SecurityConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/AdminZoneButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/UserDetailsServiceImp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/AdminZoneButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/CalculateCostCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ConfirmOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ConfirmPaymentCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/CreateOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/GiveVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/HomeButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ICommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/LoadOrderListCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/LogInCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/LogOutCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/MakeOrderButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/NoCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/RegisterCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/RejectOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ResetOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ReturnDamagedVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/ReturnVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/command/SelectOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/factory/CommandFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/service/factory/DaoFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/servlet/CarRentalServlet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/tags/LoadOrderListTag.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/tags/LoadVehicleListTag.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/java/com/project/carrental/util/CommandHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/resources/!CarRental create DB script.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/resources/config.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/test/java/com/project/carrental/CarRentalSpringApplicationTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Account.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/AccountType.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Address.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Payment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Person.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Reservation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/domain/Vehicle.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/payment/PaymentController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/payment/PaymentDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/payment/PaymentService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/payment/PaymentServiceImp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/reservation/controller/ReservationController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/reservation/service/PersonService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/reservation/service/PersonServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/reservation/service/ReservationService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/user/Controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/user/DAO/AccountDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/user/Service/AccountService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/user/Service/PersonService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/vehicle/controller/VehicleController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/vehicle/dao/VehicleDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/vehicle/domain/VehicleSpec.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/java/com/car/rent/vehicle/service/VehicleService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/resources/templates/payment/add-payment.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/resources/templates/payment/add-payment3.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/resources/templates/users/admin/HomePage.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/main/resources/templates/vehicle/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpringProject/src/test/java/com/car/rent/CarRentalApplicationTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../car-rental/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../car-rental/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../car-rental/src/main/resources/create_db.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../car-rental/src/main/resources/import.sql">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/BootConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/SpringSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/dao/ReservationDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/domain/Account.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/domain/Person.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/payment/PaymentDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/payment/PaymentServiceImp.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/reservation/controller/ReservationController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/reservation/service/PersonService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/reservation/service/PersonServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/reservation/service/ReservationService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/reservation/service/ReservationServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/java/com/car/rent/user/Controller/LoginController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project2/src/main/resources/templates/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../test_final_project7/pom.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../test_final_project7/src/main/java/by/shakhrai/epam/web/task/controller/MainControllerTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/allclasses-frame.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/class-use/RentalMvcTest.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/controllers/CarController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/controllers/OrderController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/controllers/UserController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/entities/Car.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/entities/Order.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/entities/User.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/entities/class-use/Feedback.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/models/CarStatistic.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/models/OrderUsersDetail.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/models/UserInfo.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/project/repositories/class-use/OrderRepository.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/controllers/CarController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/controllers/OrderController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/controllers/UserController.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/entities/Car.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/entities/Order.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/entities/User.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/models/CarStatistic.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/models/OrderStatistics.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/models/OrderUsersDetail.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/models/UserInfo.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/models/package-summary.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/doc/com/vais/repositories/package-summary.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/RentalApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/config/WebSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/controllers/AccessController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/controllers/CarController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/controllers/FeedbackController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/controllers/OrderController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/controllers/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/entities/Car.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/entities/Order.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/entities/OrderItem.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/entities/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/entities/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/CarStatistic.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/OrderDaily.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/OrderStatistics.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/OrderUsersDetail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/UserInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/models/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/repositories/FeedBackRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/repositories/OrderRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/repositories/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/repositories/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/security/RentalSimpleUrlAuthenticationSucessHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/service/UserDetailsServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/service/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/utils/UserDetail.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/java/com/vais/utils/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/resources/META-INF/resources/WEB-INF/jsp/about.jsp">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/resources/static/i18n/package-info.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../test_final_project8/src/main/webapp/WEB-INF/jsp/about.jsp">
           <value>
             <set />
           </value>

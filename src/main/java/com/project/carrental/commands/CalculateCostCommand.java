@@ -1,21 +1,18 @@
 package com.project.carrental.commands;
 
+import com.project.carrental.services.VehicleService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
-import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.exceptions.SessionTimeoutException;
-import com.project.carrental.idao.IVehicleDAO;
+
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
 
 /**
  * Class that represents command to calculate the rent cost for specified
@@ -24,6 +21,11 @@ import org.joda.time.Days;
  */
 public class CalculateCostCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(CalculateCostCommand.class);
+    private final VehicleService vehicleService;
+
+    public CalculateCostCommand(VehicleService vehicleService) {
+        this.vehicleService = vehicleService;
+    }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
@@ -38,7 +40,9 @@ public class CalculateCostCommand implements ICommand {
 
             String tmpPick = req.getParameter(REQ_PARAM_PICK_UP_DATE);
             String tmpDrop = req.getParameter(REQ_PARAM_DROP_OFF_DATE);
-            Timestamp pick = Timestamp.valueOf(convertDateFormat(tmpPick));
+
+
+            /*Timestamp pick = Timestamp.valueOf(convertDateFormat(tmpPick));
             Timestamp drop = Timestamp.valueOf(convertDateFormat(tmpDrop));
             req.setAttribute(REQ_PARAM_PICK_UP_DATE, tmpPick);
             req.setAttribute(REQ_PARAM_DROP_OFF_DATE, tmpDrop);
@@ -46,7 +50,9 @@ public class CalculateCostCommand implements ICommand {
             IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
             int rentInterval = daysBetween(pick, drop);
             BigDecimal dailyPrice = vehicleDAO.findDailyPriceByVehicleID(vehicleID);
-            BigDecimal rentCost = calcRentCost(dailyPrice, rentInterval);
+            BigDecimal rentCost = calcRentCost(dailyPrice, rentInterval);*/
+            BigDecimal rentCost = vehicleService.calculateCost(vehicleID, tmpPick, tmpDrop, req);
+
             req.setAttribute(REQ_PARAM_RENT_COST, rentCost);
 
             page = ConfigManager.getInstance()
@@ -58,28 +64,6 @@ public class CalculateCostCommand implements ICommand {
                     .getProperty(ConfigManager.ERROR_PAGE_PATH);
         }
         return page;
-    }
-
-    //auxiliary method for counting number of days between two Timestamp objects
-    private int daysBetween(Timestamp ts1, Timestamp ts2) {
-        DateTime firstDateTime;
-        DateTime secondDateTime;
-        if (ts2.after(ts1)) {
-            firstDateTime = new DateTime(ts1.getTime());
-            secondDateTime = new DateTime(ts2.getTime());
-        } else {
-            LOGGER.warn("Second parameter date is before first");
-            firstDateTime = new DateTime(ts2.getTime());
-            secondDateTime = new DateTime(ts1.getTime());
-        }
-        return Days.daysBetween(firstDateTime.withTimeAtStartOfDay(),
-                secondDateTime.withTimeAtStartOfDay()).getDays();
-    }
-
-    //auxiliary method for calculating rent cost based on daily price and number
-    //of days
-    private BigDecimal calcRentCost(BigDecimal dailyPrice, int days) {
-        return dailyPrice.multiply(new BigDecimal(days));
     }
 
     //auxiliary method for converting date format from HTML to Java
