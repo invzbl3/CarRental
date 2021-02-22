@@ -19,6 +19,7 @@ import com.project.carrental.commands.ResetOrderCommand;
 import com.project.carrental.commands.ReturnDamagedVehicleCommand;
 import com.project.carrental.commands.ReturnVehicleCommand;
 import com.project.carrental.commands.SelectOrderCommand;
+import com.project.carrental.services.OrderService;
 import com.project.carrental.services.VehicleService;
 
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class CommandFactory {
         commands.put("loadOrderList", new LoadOrderListCommand());
         commands.put("selectOrder", new SelectOrderCommand());
 
-        commands.put("confirmOrder", new ConfirmOrderCommand());
+        commands.put("confirmOrder", new ConfirmOrderCommand(new OrderService()));
         commands.put("rejectOrder", new RejectOrderCommand());
         commands.put("giveVehicle", new GiveVehicleCommand());
         commands.put("returnVehicle", new ReturnVehicleCommand());
