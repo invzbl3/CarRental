@@ -47,9 +47,11 @@ public class ReturnDamagedVehicleCommand implements ICommand {
             /*IOrderDAO orderDAO = DAOFactory.getOrderDAO();
             Order order = orderDAO.findByID(Integer.parseInt(req.
                     getParameter(REQ_PARAM_ORDER_ID)));*/
+
             int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
             double damageCost = Double.parseDouble(req.getParameter(REQ_PARAM_DAMAGE_COST));
             String damageDesc = req.getParameter(REQ_PARAM_DAMAGE_DESC);
+
             /*order.setReturned(true);
             order.setDamaged(true);
             order.setDamageDesc(req.getParameter(REQ_PARAM_DAMAGE_DESC));
@@ -58,10 +60,11 @@ public class ReturnDamagedVehicleCommand implements ICommand {
             order.setDamageCost(damageCost);
             int updateOrderCode = orderDAO.update(order);*/
 
-            int updateOrderCode = orderService.returnDamagedVehicle(orderId, damageCost, damageDesc);
-            if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            orderService.returnDamagedVehicle(orderId, damageCost, damageDesc);
+
+            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
-            }
+            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

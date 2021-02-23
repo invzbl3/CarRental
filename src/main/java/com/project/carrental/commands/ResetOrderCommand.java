@@ -55,11 +55,11 @@ public class ResetOrderCommand implements ICommand {
             order.setPaid(false);
             int updateOrderCode = orderDAO.update(order);*/
 
-            int updateOrderCode = orderService.resetOrder(orderId);
+            orderService.resetOrder(orderId);
 
-            if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
-            }
+            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

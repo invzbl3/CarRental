@@ -69,12 +69,12 @@ public class CreateOrderCommand implements ICommand {
             passport.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
 
             //int passportID = passportDAO.insert(passport);
-            int passportID = passportService.createOrder(passport);
-            if (passportID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            passportService.createOrder(passport);
+            /*if (passportID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Passport entry in DB was not created");
             } else {
                 passport.setPassportID(passportID);
-            }
+            }*/
 
             //create and insert new order
             /*Order order = new Order();
@@ -112,11 +112,11 @@ public class CreateOrderCommand implements ICommand {
             BigDecimal rentCost = BigDecimal.valueOf((Double.parseDouble(req.
                     getParameter(REQ_PARAM_RENT_COST))));
 
-            int insertOrderCode = orderService.createOrderCommand(vehicle, user, passport, pickUpDate, dropOffDate, rentCost);
+            orderService.createOrderCommand(vehicle, user, passport, pickUpDate, dropOffDate, rentCost);
 
-            if (insertOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            /*if (insertOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not created");
-            }
+            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.INFO_ORDER_PAGE_PATH);

@@ -20,9 +20,9 @@ import javax.servlet.http.HttpSession;
 public class LogInCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(LogInCommand.class);
 
-    private static final int LOGIN_ERROR = -1;
+    /*private static final int LOGIN_ERROR = -1;
     private static final int ACC_TYPE_ADMIN = 1;
-    static final int ACC_TYPE_CLIENT = 2;
+    static final int ACC_TYPE_CLIENT = 2;*/
 
     private final UserService userService;
 
@@ -36,63 +36,15 @@ public class LogInCommand implements ICommand {
         LOGGER.info("Command called: " + this.getClass().getSimpleName());
 
         //get DAO and input data
-        IUserDAO userDAO = DAOFactory.getUserDAO();
+        //IUserDAO userDAO = DAOFactory.getUserDAO();
         String login = req.getParameter(REQ_PARAM_LOGIN);
         String password = req.getParameter(REQ_PARAM_PASSWORD);
 
-        //declare variables
+        /*//declare variables
         String page;
         User user;
-        int userID;
+        int userID;*/
 
-        //check the login information
-        switch (checkLogin(login, password)) {
-            case ACC_TYPE_CLIENT:
-                session.setAttribute(SESS_PARAM_USER_NAME, login);
-                session.setAttribute(SESS_PARAM_USERTYPE_ID, ACC_TYPE_CLIENT);
-                /*user = userDAO.findByLogin(login);
-                userID = user.getUserID();*/
-
-                userID = userService.logInCommandClient(login);
-                session.setAttribute(SESS_PARAM_USER_ID, userID);
-                page = ConfigManager.getInstance()
-                        .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                //LOGGER.info("User " + user.getLogin() + " logged in");
-                break;
-            case ACC_TYPE_ADMIN:
-                session.setAttribute(SESS_PARAM_USER_NAME, login);
-                session.setAttribute(SESS_PARAM_USERTYPE_ID, ACC_TYPE_ADMIN);
-                /*user = userDAO.findByLogin(login);
-                userID = user.getUserID();*/
-
-                userID = userService.logInCommandAdmin(login);
-                session.setAttribute(SESS_PARAM_USER_ID, userID);
-                page = ConfigManager.getInstance()
-                        .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                //LOGGER.info("Admin " + user.getLogin() + " logged in");
-                break;
-            case LOGIN_ERROR:
-                req.setAttribute(SESS_PARAM_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE);
-                page = ConfigManager.getInstance()
-                        .getProperty(ConfigManager.ERROR_PAGE_PATH);
-                LOGGER.error(login + " login tryout failed");
-                break;
-            default:
-                page = null;
-                break;
-        }
-        return page;
-    }
-
-    //auxiliary method for checking the login and password correspondence
-    private int checkLogin(String login, String password) {
-        LOGGER.debug("checkLogin called");
-        IUserDAO userDAO = DAOFactory.getUserDAO();
-        User user = userDAO.findByLogin(login);
-        if ((user == null) || !(user.getPassword().equals(password))) {
-            return LOGIN_ERROR;
-        } else {
-            return user.getUserTypeID();
-        }
+        return userService.logInCommand(login, password, session);
     }
 }

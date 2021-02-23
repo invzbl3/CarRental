@@ -1,5 +1,6 @@
 package com.project.carrental.services;
 
+import com.project.carrental.dao.DAOHelper;
 import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.Order;
 import com.project.carrental.entities.Passport;
@@ -13,29 +14,43 @@ import java.sql.Timestamp;
 public class OrderService {
     IOrderDAO orderDAO = DAOFactory.getOrderDAO();
 
-    public int confirmOrder(int orderId) {
+    public void confirmOrder(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setProcessed(true);
         order.setRejected(false);
         order.setRejectDesc(null);
-        return orderDAO.update(order);
+        int updateOrderCode = orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int giveVehicle(int orderId) {
+    public void giveVehicle(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setPicked(true);
-        return orderDAO.update(order);
+
+        int updateOrderCode = orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int rejectOrder(int orderId, String rejectDesc) {
+    public void rejectOrder(int orderId, String rejectDesc) {
         Order order = orderDAO.findByID(orderId);
         order.setProcessed(true);
         order.setRejected(true);
         order.setRejectDesc(rejectDesc);
-        return orderDAO.update(order);
+
+        int updateOrderCode = orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int resetOrder(int orderId) {
+    public void resetOrder(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setProcessed(false);
         order.setRejected(false);
@@ -46,25 +61,40 @@ public class OrderService {
         order.setDamageDesc(null);
         order.setDamageCost(null);
         order.setPaid(false);
-        return orderDAO.update(order);
+
+        int updateOrderCode =orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int returnVehicle(int orderId) {
+    public void returnVehicle(int orderId) {
         Order order = orderDAO.findByID(orderId);
         order.setReturned(true);
-        return orderDAO.update(order);
+
+        int updateOrderCode = orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int returnDamagedVehicle(int orderId, double damageCost, String damageDesc) {
+    public void returnDamagedVehicle(int orderId, double damageCost, String damageDesc) {
         Order order = orderDAO.findByID(orderId);
         order.setReturned(true);
         order.setDamaged(true);
         order.setDamageDesc(damageDesc);
         order.setDamageCost(BigDecimal.valueOf(damageCost));
-        return orderDAO.update(order);
+
+        int updateOrderCode =orderDAO.update(order);
+
+        if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not updated");
+        }
     }
 
-    public int createOrderCommand(Vehicle vehicle, User user, Passport passport,
+    public void createOrderCommand(Vehicle vehicle, User user, Passport passport,
                                   Timestamp pickUpDate, Timestamp dropOffDate,
                                   BigDecimal rentCost) {
         Order order = new Order();
@@ -74,6 +104,11 @@ public class OrderService {
         order.setPickUpDate(pickUpDate);
         order.setDropOffDate(dropOffDate);
         order.setRentCost(rentCost);
-        return orderDAO.insert(order);
+
+        int insertOrderCode = orderDAO.insert(order);
+
+        if (insertOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            throw new IllegalArgumentException("Order entry in DB was not created");
+        }
     }
 }

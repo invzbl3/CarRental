@@ -45,11 +45,11 @@ public class ConfirmOrderCommand implements ICommand {
             order.setRejectDesc(null);
             int updateOrderCode = orderDAO.update(order);*/
 
-            int updateOrderCode = orderService.confirmOrder(orderId);
+            orderService.confirmOrder(orderId);
 
-            if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
-            }
+            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

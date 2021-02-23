@@ -45,10 +45,10 @@ public class ConfirmPaymentCommand implements ICommand {
             int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
             /*order.setPaid(true);
             int updateOrderCode = orderDAO.update(order);*/
-            int updateOrderCode = paymentService.confirmPayment(orderId);
-            if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
+            paymentService.confirmPayment(orderId);
+            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not updated");
-            }
+            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

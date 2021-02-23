@@ -36,7 +36,7 @@ public class CommandFactory {
 
     private CommandFactory() {
         //filling the map with available commands
-        commands.put("login", new LogInCommand(userService));
+        commands.put("login", new LogInCommand(new UserService()));
         commands.put("logout", new LogOutCommand());
         commands.put("homeButton", new HomeButtonCommand());
         commands.put("registration", new RegisterCommand(new UserService()));
