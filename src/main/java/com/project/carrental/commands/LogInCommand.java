@@ -20,9 +20,9 @@ import javax.servlet.http.HttpSession;
 public class LogInCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(LogInCommand.class);
 
-    /*private static final int LOGIN_ERROR = -1;
+    private static final int LOGIN_ERROR = -1;
     private static final int ACC_TYPE_ADMIN = 1;
-    static final int ACC_TYPE_CLIENT = 2;*/
+    static final int ACC_TYPE_CLIENT = 2;
 
     private final UserService userService;
 
@@ -40,11 +40,26 @@ public class LogInCommand implements ICommand {
         String login = req.getParameter(REQ_PARAM_LOGIN);
         String password = req.getParameter(REQ_PARAM_PASSWORD);
 
-        /*//declare variables
+        //declare variables
         String page;
         User user;
-        int userID;*/
+        //int userID;
 
-        return userService.logInCommand(login, password, session);
+        user = userService.checkLogin(login, password);
+        if (user != null) {
+            session.setAttribute(SESS_PARAM_USER_NAME, user.getLogin());
+            session.setAttribute(SESS_PARAM_USERTYPE_ID, user.getUserTypeID());
+            session.setAttribute(SESS_PARAM_USER_ID, user.getUserID());
+
+            page = ConfigManager.getInstance()
+                    .getProperty(ConfigManager.INDEX_PAGE_PATH);
+            LOGGER.info(user.getLogin() + " logged in");
+        } else {
+            req.setAttribute(SESS_PARAM_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE);
+            page = ConfigManager.getInstance()
+                    .getProperty(ConfigManager.ERROR_PAGE_PATH);
+            LOGGER.error(login + " login tryout failed");
+        }
+        return page;
     }
 }
