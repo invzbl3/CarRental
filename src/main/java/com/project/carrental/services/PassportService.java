@@ -8,7 +8,7 @@ import com.project.carrental.idao.IPassportDAO;
 public class PassportService {
     IPassportDAO passportDAO = DAOFactory.getPassportDAO();
 
-    public void createOrder(Passport passport) {
+    public void createPassport(Passport passport) {
 
         int passportID = passportDAO.insert(passport);
 

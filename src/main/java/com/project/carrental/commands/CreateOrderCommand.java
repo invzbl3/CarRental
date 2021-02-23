@@ -69,7 +69,7 @@ public class CreateOrderCommand implements ICommand {
             passport.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
 
             //int passportID = passportDAO.insert(passport);
-            passportService.createOrder(passport);
+            passportService.createPassport(passport);
             /*if (passportID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Passport entry in DB was not created");
             } else {
