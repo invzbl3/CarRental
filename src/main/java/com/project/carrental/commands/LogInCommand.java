@@ -20,9 +20,9 @@ import javax.servlet.http.HttpSession;
 public class LogInCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(LogInCommand.class);
 
-    private static final int LOGIN_ERROR = -1;
-    private static final int ACC_TYPE_ADMIN = 1;
-    static final int ACC_TYPE_CLIENT = 2;
+    //private static final int LOGIN_ERROR = -1;
+    //private static final int ACC_TYPE_ADMIN = 1;
+    //static final int ACC_TYPE_CLIENT = 2;
 
     private final UserService userService;
 

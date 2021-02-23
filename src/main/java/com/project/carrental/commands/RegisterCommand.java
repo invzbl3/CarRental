@@ -20,6 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  */
 public class RegisterCommand implements ICommand {
+
+    static final int ACC_TYPE_CLIENT = 2;
     public static final Logger LOGGER = Logger.getLogger(RegisterCommand.class);
     private final UserService userService;
 
@@ -48,8 +50,7 @@ public class RegisterCommand implements ICommand {
                     user.setPassword(password);
                     int insertUserCode = userDAO.insert(user);*/
 
-                    int userTypeId = LogInCommand.ACC_TYPE_CLIENT;
-                    userService.registerCommand(login, password, userTypeId);
+                    userService.registerCommand(login, password, ACC_TYPE_CLIENT);
 
                     /*if (insertUserCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                         throw new IllegalArgumentException("Registration failed. Entry was not created");
