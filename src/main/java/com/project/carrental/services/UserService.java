@@ -44,7 +44,7 @@ public class UserService {
         User user;
         int userID;
 
-        //check the login information
+        /*//check the login information
         switch (checkLogin(login, password)) {
             case ACC_TYPE_CLIENT:
                 session.setAttribute(SESS_PARAM_USER_NAME, login);
@@ -75,19 +75,36 @@ public class UserService {
             default:
                 page = null;
                 break;
+        }*/
+
+        user = checkLogin(login, password);
+        if (user != null) {
+            session.setAttribute(SESS_PARAM_USER_NAME, user.getLogin());
+            session.setAttribute(SESS_PARAM_USERTYPE_ID, user.getUserTypeID());
+            session.setAttribute(SESS_PARAM_USER_ID, user.getUserID());
+
+            page = ConfigManager.getInstance()
+                    .getProperty(ConfigManager.INDEX_PAGE_PATH);
+        } else {
+            req.setAttribute(SESS_PARAM_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE);
+            page = ConfigManager.getInstance()
+                    .getProperty(ConfigManager.ERROR_PAGE_PATH);
         }
+
         return page;
     }
 
     //auxiliary method for checking the login and password correspondence
-    private int checkLogin(String login, String password) {
+    private User checkLogin(String login, String password) {
         LOGGER.debug("checkLogin called");
         IUserDAO userDAO = DAOFactory.getUserDAO();
         User user = userDAO.findByLogin(login);
         if ((user == null) || !(user.getPassword().equals(password))) {
-            return LOGIN_ERROR;
+            //return LOGIN_ERROR;
+            return null;
         } else {
-            return user.getUserTypeID();
+            //return user.getUserTypeID();
+            return user;
         }
     }
 }
