@@ -1,16 +1,17 @@
 package com.project.carrental.commands;
 
+import com.project.carrental.entities.User;
+import com.project.carrental.entities.Vehicle;
+import com.project.carrental.services.OrderService;
+import com.project.carrental.services.PassportService;
+import com.project.carrental.services.UserService;
+import com.project.carrental.services.VehicleService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
 import com.project.carrental.dao.DAOHelper;
 import com.project.carrental.daofactory.DAOFactory;
-import com.project.carrental.entities.Order;
 import com.project.carrental.entities.Passport;
-import com.project.carrental.entities.User;
-import com.project.carrental.entities.Vehicle;
 import com.project.carrental.exceptions.SessionTimeoutException;
-import com.project.carrental.idao.IOrderDAO;
-import com.project.carrental.idao.IPassportDAO;
 import com.project.carrental.idao.IUserDAO;
 import com.project.carrental.idao.IVehicleDAO;
 import org.apache.log4j.Logger;
@@ -30,6 +31,17 @@ import javax.servlet.http.HttpSession;
  */
 public class CreateOrderCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(CreateOrderCommand.class);
+    private final PassportService passportService;
+    private final VehicleService vehicleService;
+    private final OrderService orderService;
+    private final UserService userService;
+
+    public CreateOrderCommand(PassportService passportService, VehicleService vehicleService, OrderService orderService, UserService userService) {
+        this.passportService = passportService;
+        this.vehicleService = vehicleService;
+        this.orderService = orderService;
+        this.userService = userService;
+    }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
@@ -40,10 +52,10 @@ public class CreateOrderCommand implements ICommand {
             CommandHelper.validateSession(session);
 
             //get DAOs
-            IPassportDAO passportDAO = DAOFactory.getPassportDAO();
-            IOrderDAO orderDAO = DAOFactory.getOrderDAO();
-            IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
-            IUserDAO userDAO = DAOFactory.getUserDAO();
+            //IPassportDAO passportDAO = DAOFactory.getPassportDAO();
+            //IOrderDAO orderDAO = DAOFactory.getOrderDAO();
+            //IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
+            //IUserDAO userDAO = DAOFactory.getUserDAO();
 
             //create and insert new passport
             Passport passport = new Passport();
@@ -55,7 +67,9 @@ public class CreateOrderCommand implements ICommand {
             passport.setPassportNumber(req.getParameter(REQ_PARAM_P_NUMBER));
             passport.setWhoIssued(req.getParameter(REQ_PARAM_WHO_ISSUED));
             passport.setWhenIssued(Date.valueOf(req.getParameter(REQ_PARAM_WHEN_ISSUED)));
-            int passportID = passportDAO.insert(passport);
+
+            //int passportID = passportDAO.insert(passport);
+            int passportID = passportService.createOrder(passport);
             if (passportID == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Passport entry in DB was not created");
             } else {
@@ -63,13 +77,19 @@ public class CreateOrderCommand implements ICommand {
             }
 
             //create and insert new order
-            Order order = new Order();
+            /*Order order = new Order();
             int vehicleID = Integer.parseInt(req.getParameter(REQ_PARAM_VEHICLE_ID));
             Vehicle vehicle = vehicleDAO.findByID(vehicleID);
-            order.setVehicle(vehicle);
+            order.setVehicle(vehicle);*/
+            int vehicleID = Integer.parseInt(req.getParameter(REQ_PARAM_VEHICLE_ID));
+            Vehicle vehicle = vehicleService.createOrderCommand(vehicleID);
+
+            /*int userID = (Integer) session.getAttribute(SESS_PARAM_USER_ID);
+            User user = userDAO.findByID(userID);*/
             int userID = (Integer) session.getAttribute(SESS_PARAM_USER_ID);
-            User user = userDAO.findByID(userID);
-            order.setUser(user);
+            User user = userService.createOrderCommand(userID);
+
+            /*order.setUser(user);
             order.setPassport(passport);
             order.setPickUpDate(Timestamp.valueOf(CalculateCostCommand
                     .convertDateFormat(req
@@ -79,7 +99,21 @@ public class CreateOrderCommand implements ICommand {
                             .getParameter(REQ_PARAM_DROP_OFF_DATE))));
             order.setRentCost(BigDecimal.valueOf((Double.parseDouble(req.
                     getParameter(REQ_PARAM_RENT_COST)))));
-            int insertOrderCode = orderDAO.insert(order);
+            int insertOrderCode = orderDAO.insert(order);*/
+
+            Timestamp pickUpDate = Timestamp.valueOf(CalculateCostCommand
+                    .convertDateFormat(req
+                            .getParameter(REQ_PARAM_PICK_UP_DATE)));
+
+            Timestamp dropOffDate = Timestamp.valueOf(CalculateCostCommand
+                    .convertDateFormat(req
+                            .getParameter(REQ_PARAM_DROP_OFF_DATE)));
+
+            BigDecimal rentCost = BigDecimal.valueOf((Double.parseDouble(req.
+                    getParameter(REQ_PARAM_RENT_COST))));
+
+            int insertOrderCode = orderService.createOrderCommand(vehicle, user, passport, pickUpDate, dropOffDate, rentCost);
+
             if (insertOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                 throw new IllegalArgumentException("Order entry in DB was not created");
             }

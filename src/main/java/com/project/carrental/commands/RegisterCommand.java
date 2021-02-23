@@ -5,6 +5,8 @@ import com.project.carrental.dao.DAOHelper;
 import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.User;
 import com.project.carrental.idao.IUserDAO;
+import com.project.carrental.services.OrderService;
+import com.project.carrental.services.UserService;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -19,6 +21,12 @@ import javax.servlet.http.HttpSession;
  */
 public class RegisterCommand implements ICommand {
     public static final Logger LOGGER = Logger.getLogger(RegisterCommand.class);
+    private final UserService userService;
+
+    public RegisterCommand(UserService userService) {
+        this.userService = userService;
+    }
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
             HttpSession session) throws ServletException, IOException {
@@ -33,15 +41,21 @@ public class RegisterCommand implements ICommand {
             if (password.equals(passwordConfirm)) {
                 IUserDAO userDAO = DAOFactory.getUserDAO();
                 if (userDAO.findByLogin(login) == null) {
-                    User user = new User();
+
+                    /*User user = new User();
                     user.setUserTypeID(LogInCommand.ACC_TYPE_CLIENT);
                     user.setLogin(login);
                     user.setPassword(password);
-                    int insertUserCode = userDAO.insert(user);
+                    int insertUserCode = userDAO.insert(user);*/
+
+                    int userTypeId = LogInCommand.ACC_TYPE_CLIENT;
+                    int insertUserCode = userService.registerCommand(login, password, userTypeId);
+
                     if (insertUserCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
                         throw new IllegalArgumentException("Registration failed. Entry was not created");
                     }
-                    LOGGER.info(user + " registered successfully");
+
+                    //LOGGER.info(user + " registered successfully");
                     page = ConfigManager.getInstance()
                             .getProperty(ConfigManager.INFO_REG_PAGE_PATH);
                 } else {

@@ -2,9 +2,13 @@ package com.project.carrental.services;
 
 import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.Order;
+import com.project.carrental.entities.Passport;
+import com.project.carrental.entities.User;
+import com.project.carrental.entities.Vehicle;
 import com.project.carrental.idao.IOrderDAO;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 public class OrderService {
     IOrderDAO orderDAO = DAOFactory.getOrderDAO();
@@ -58,5 +62,18 @@ public class OrderService {
         order.setDamageDesc(damageDesc);
         order.setDamageCost(BigDecimal.valueOf(damageCost));
         return orderDAO.update(order);
+    }
+
+    public int createOrderCommand(Vehicle vehicle, User user, Passport passport,
+                                  Timestamp pickUpDate, Timestamp dropOffDate,
+                                  BigDecimal rentCost) {
+        Order order = new Order();
+        order.setVehicle(vehicle);
+        order.setUser(user);
+        order.setPassport(passport);
+        order.setPickUpDate(pickUpDate);
+        order.setDropOffDate(dropOffDate);
+        order.setRentCost(rentCost);
+        return orderDAO.insert(order);
     }
 }

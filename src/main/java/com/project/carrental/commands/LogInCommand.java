@@ -4,6 +4,7 @@ import com.project.carrental.config.ConfigManager;
 import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.User;
 import com.project.carrental.idao.IUserDAO;
+import com.project.carrental.services.UserService;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -22,6 +23,12 @@ public class LogInCommand implements ICommand {
     private static final int LOGIN_ERROR = -1;
     private static final int ACC_TYPE_ADMIN = 1;
     static final int ACC_TYPE_CLIENT = 2;
+
+    private final UserService userService;
+
+    public LogInCommand(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse res,
@@ -43,22 +50,26 @@ public class LogInCommand implements ICommand {
             case ACC_TYPE_CLIENT:
                 session.setAttribute(SESS_PARAM_USER_NAME, login);
                 session.setAttribute(SESS_PARAM_USERTYPE_ID, ACC_TYPE_CLIENT);
-                user = userDAO.findByLogin(login);
-                userID = user.getUserID();
+                /*user = userDAO.findByLogin(login);
+                userID = user.getUserID();*/
+
+                userID = userService.logInCommandClient(login);
                 session.setAttribute(SESS_PARAM_USER_ID, userID);
                 page = ConfigManager.getInstance()
                         .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                LOGGER.info("User " + user.getLogin() + " logged in");
+                //LOGGER.info("User " + user.getLogin() + " logged in");
                 break;
             case ACC_TYPE_ADMIN:
                 session.setAttribute(SESS_PARAM_USER_NAME, login);
                 session.setAttribute(SESS_PARAM_USERTYPE_ID, ACC_TYPE_ADMIN);
-                user = userDAO.findByLogin(login);
-                userID = user.getUserID();
+                /*user = userDAO.findByLogin(login);
+                userID = user.getUserID();*/
+
+                userID = userService.logInCommandAdmin(login);
                 session.setAttribute(SESS_PARAM_USER_ID, userID);
                 page = ConfigManager.getInstance()
                         .getProperty(ConfigManager.INDEX_PAGE_PATH);
-                LOGGER.info("Admin " + user.getLogin() + " logged in");
+                //LOGGER.info("Admin " + user.getLogin() + " logged in");
                 break;
             case LOGIN_ERROR:
                 req.setAttribute(SESS_PARAM_ERROR_MESSAGE, LOGIN_ERROR_MESSAGE);

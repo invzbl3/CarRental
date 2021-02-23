@@ -558,6 +558,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/LogInCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/RegisterCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/RejectOrderCommand.java">
           <value>
             <set />
@@ -604,6 +614,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/OrderService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/services/PassportService.java">
           <value>
             <set />
           </value>
@@ -1024,6 +1039,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/resources/config.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../CarRentalSpring/src/main/webapp/WEB-INF/jsp/index.jsp">
           <value>
             <set />
           </value>

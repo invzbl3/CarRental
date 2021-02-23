@@ -2,6 +2,7 @@ package com.project.carrental.services;
 
 import com.project.carrental.commands.CalculateCostCommand;
 import com.project.carrental.daofactory.DAOFactory;
+import com.project.carrental.entities.Vehicle;
 import com.project.carrental.idao.IVehicleDAO;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
@@ -53,5 +54,9 @@ public class VehicleService {
         }
         return Days.daysBetween(firstDateTime.withTimeAtStartOfDay(),
                 secondDateTime.withTimeAtStartOfDay()).getDays();
+    }
+
+    public Vehicle createOrderCommand(int vehicleID) {
+        return vehicleDAO.findByID(vehicleID);
     }
 }
