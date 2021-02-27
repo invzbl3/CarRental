@@ -1,14 +1,10 @@
 package com.project.carrental.commands;
 
 import com.project.carrental.config.ConfigManager;
-import com.project.carrental.dao.DAOHelper;
 import com.project.carrental.daofactory.DAOFactory;
-import com.project.carrental.entities.User;
 import com.project.carrental.idao.IUserDAO;
-import com.project.carrental.services.OrderService;
 import com.project.carrental.services.UserService;
 import org.apache.log4j.Logger;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -44,19 +40,8 @@ public class RegisterCommand implements ICommand {
                 IUserDAO userDAO = DAOFactory.getUserDAO();
                 if (userDAO.findByLogin(login) == null) {
 
-                    /*User user = new User();
-                    user.setUserTypeID(LogInCommand.ACC_TYPE_CLIENT);
-                    user.setLogin(login);
-                    user.setPassword(password);
-                    int insertUserCode = userDAO.insert(user);*/
-
                     userService.registerCommand(login, password, ACC_TYPE_CLIENT);
 
-                    /*if (insertUserCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
-                        throw new IllegalArgumentException("Registration failed. Entry was not created");
-                    }*/
-
-                    //LOGGER.info(user + " registered successfully");
                     page = ConfigManager.getInstance()
                             .getProperty(ConfigManager.INFO_REG_PAGE_PATH);
                 } else {

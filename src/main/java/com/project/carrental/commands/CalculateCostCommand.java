@@ -4,7 +4,6 @@ import com.project.carrental.services.VehicleService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
 import com.project.carrental.exceptions.SessionTimeoutException;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -12,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.Logger;
 
 /**
@@ -42,16 +40,11 @@ public class CalculateCostCommand implements ICommand {
             String tmpPick = req.getParameter(REQ_PARAM_PICK_UP_DATE);
             String tmpDrop = req.getParameter(REQ_PARAM_DROP_OFF_DATE);
 
-
             Timestamp pick = Timestamp.valueOf(convertDateFormat(tmpPick));
             Timestamp drop = Timestamp.valueOf(convertDateFormat(tmpDrop));
             req.setAttribute(REQ_PARAM_PICK_UP_DATE, tmpPick);
             req.setAttribute(REQ_PARAM_DROP_OFF_DATE, tmpDrop);
 
-            /*IVehicleDAO vehicleDAO = DAOFactory.getVehicleDAO();
-            int rentInterval = daysBetween(pick, drop);
-            BigDecimal dailyPrice = vehicleDAO.findDailyPriceByVehicleID(vehicleID);
-            BigDecimal rentCost = calcRentCost(dailyPrice, rentInterval);*/
             BigDecimal rentCost = vehicleService.calculateCost(vehicleID, pick, drop);
 
             req.setAttribute(REQ_PARAM_RENT_COST, rentCost);

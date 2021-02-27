@@ -7,13 +7,8 @@ import com.project.carrental.idao.IVehicleDAO;
 import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
-
-import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
-import static com.project.carrental.commands.ICommand.REQ_PARAM_DROP_OFF_DATE;
-import static com.project.carrental.commands.ICommand.REQ_PARAM_PICK_UP_DATE;
 
 public class VehicleService {
     public static final Logger LOGGER = Logger.getLogger(CalculateCostCommand.class);

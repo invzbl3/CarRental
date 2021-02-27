@@ -1,11 +1,7 @@
 package com.project.carrental.commands;
 
 import com.project.carrental.config.ConfigManager;
-import com.project.carrental.dao.DAOHelper;
-import com.project.carrental.daofactory.DAOFactory;
-import com.project.carrental.entities.Order;
 import com.project.carrental.exceptions.SessionTimeoutException;
-import com.project.carrental.idao.IOrderDAO;
 import com.project.carrental.services.OrderService;
 import com.project.carrental.util.CommandHelper;
 import org.apache.log4j.Logger;
@@ -38,28 +34,9 @@ public class ResetOrderCommand implements ICommand {
         try {
             CommandHelper.validateSession(session);
 
-            /*IOrderDAO orderDAO = DAOFactory.getOrderDAO();
-            Order order = orderDAO.findByID(Integer.parseInt(req.
-                    getParameter(REQ_PARAM_ORDER_ID)));*/
-
             int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
 
-            /*order.setProcessed(false);
-            order.setRejected(false);
-            order.setRejectDesc(null);
-            order.setPicked(false);
-            order.setReturned(false);
-            order.setDamaged(false);
-            order.setDamageDesc(null);
-            order.setDamageCost(null);
-            order.setPaid(false);
-            int updateOrderCode = orderDAO.update(order);*/
-
             orderService.resetOrder(orderId);
-
-            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
-                throw new IllegalArgumentException("Order entry in DB was not updated");
-            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

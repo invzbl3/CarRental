@@ -528,6 +528,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/AdminZoneButtonCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/CalculateCostCommand.java">
           <value>
             <set />
@@ -558,6 +563,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/LoadOrderListCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/LogInCommand.java">
           <value>
             <set />
@@ -584,6 +594,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/ReturnVehicleCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/commands/SelectOrderCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/config/ConfigManager.java">
           <value>
             <set />
           </value>
@@ -638,7 +658,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/servlet/CarRentalServlet.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/tags/LoadOrderListTag.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/tags/LoadVehicleListTag.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/util/CommandFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/project/carrental/util/CommandHelper.java">
           <value>
             <set />
           </value>

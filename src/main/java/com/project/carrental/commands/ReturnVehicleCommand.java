@@ -3,13 +3,8 @@ package com.project.carrental.commands;
 import com.project.carrental.services.OrderService;
 import com.project.carrental.util.CommandHelper;
 import com.project.carrental.config.ConfigManager;
-import com.project.carrental.dao.DAOHelper;
-import com.project.carrental.daofactory.DAOFactory;
-import com.project.carrental.entities.Order;
 import com.project.carrental.exceptions.SessionTimeoutException;
-import com.project.carrental.idao.IOrderDAO;
 import org.apache.log4j.Logger;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,19 +35,9 @@ public class ReturnVehicleCommand implements ICommand {
         try {
             CommandHelper.validateSession(session);
 
-            /*IOrderDAO orderDAO = DAOFactory.getOrderDAO();
-            Order order = orderDAO.findByID(Integer.parseInt(req.
-                    getParameter(REQ_PARAM_ORDER_ID)));*/
             int orderId = Integer.parseInt(req.getParameter(REQ_PARAM_ORDER_ID));
 
-            /*order.setReturned(true);
-            int updateOrderCode = orderDAO.update(order);*/
-
             orderService.returnVehicle(orderId);
-
-            /*if (updateOrderCode == DAOHelper.EXECUTE_UPDATE_ERROR_CODE) {
-                throw new IllegalArgumentException("Order entry in DB was not updated");
-            }*/
 
             page = ConfigManager.getInstance()
                     .getProperty(ConfigManager.ADMIN_PAGE_PATH);

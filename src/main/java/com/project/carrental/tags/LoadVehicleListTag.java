@@ -4,7 +4,6 @@ import com.project.carrental.commands.ICommand;
 import com.project.carrental.daofactory.DAOFactory;
 import com.project.carrental.entities.Vehicle;
 import com.project.carrental.idao.IVehicleDAO;
-
 import java.util.List;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;

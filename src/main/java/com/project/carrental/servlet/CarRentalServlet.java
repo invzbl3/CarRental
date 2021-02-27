@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.log4j.PropertyConfigurator;
 
 /**
@@ -20,7 +19,6 @@ import org.apache.log4j.PropertyConfigurator;
 
 public class CarRentalServlet extends HttpServlet {
 
-//    private static final int SESSION_TIMEOUT = 5; //in seconds
     private final CommandFactory COMMAND_FACTORY = CommandFactory.getInstance();
     private boolean flag = true;
 
@@ -38,7 +36,6 @@ public class CarRentalServlet extends HttpServlet {
         HttpSession session;
         if (flag) {
             session = req.getSession();
-//            session.setMaxInactiveInterval(SESSION_TIMEOUT);
             flag = false;
         } else {
             session = req.getSession(false);

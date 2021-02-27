@@ -36,10 +36,8 @@ public class UserService {
         IUserDAO userDAO = DAOFactory.getUserDAO();
         User user = userDAO.findByLogin(login);
         if ((user == null) || !(user.getPassword().equals(password))) {
-            //return LOGIN_ERROR;
             return null;
         } else {
-            //return user.getUserTypeID();
             return user;
         }
     }
